@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin CMS - Le Papio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f0f2f5;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #6EB8B2 0%, #5a9a95 100%);
+            color: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            background: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .tab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .tab.active {
+            background: #6EB8B2;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .section {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            color: #6EB8B2;
+            margin-bottom: 20px;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .items-grid {
+            display: grid;
+            gap: 15px;
+        }
+
+        .item-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #6EB8B2;
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            transition: all 0.3s;
+        }
+
+        .item-card:hover {
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transform: translateX(5px);
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-name {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .item-description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .item-price {
+            color: #6EB8B2;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .item-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-edit {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .btn-edit:hover {
+            background: #45a049;
+        }
+
+        .btn-delete {
+            background: #f44336;
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background: #da190b;
+        }
+
+        .btn-primary {
+            background: #6EB8B2;
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+        }
+
+        .btn-primary:hover {
+            background: #5a9a95;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            background: #4CAF50;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 2000;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #e9ecef;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+
+        .add-button-container {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🍽️ Administration Le Papio</h1>
+        <p>Système de gestion de contenu (CMS)</p>
+    </div>
+
+    <div class="container">
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('entrees')">Entrées</button>
+            <button class="tab" onclick="switchTab('potages')">Potages</button>
+            <button class="tab" onclick="switchTab('plats')">Plats</button>
+            <button class="tab" onclick="switchTab('moules')">Moules-Frites</button>
+            <button class="tab" onclick="switchTab('pizzas')">Pizzas</button>
+            <button class="tab" onclick="switchTab('formules')">Formules</button>
+            <button class="tab" onclick="switchTab('enfant')">Menu Enfant</button>
+            <button class="tab" onclick="switchTab('desserts')">Desserts</button>
+            <button class="tab" onclick="switchTab('glaces')">Glaces</button>
+            <button class="tab" onclick="switchTab('news')">Actualités</button>
+        </div>
+
+        <div id="entrees" class="tab-content active">
+            <div class="section">
+                <div class="add-button-container">
+                    <button class="btn btn-primary" onclick="openAddModal('entrees')">+ Ajouter une entrée</button>
+                </div>
+                <h2>🥗 Entrées</h2>
+                <div id="entrees-list" class="items-grid"></div>
+            </div>
+        </div>
+
+        <div id="potages" class="tab-content">
+            <div class="section">
+                <div class="add-button-container">
+                    <button class="btn btn-primary" onclick="openAddModal('potages')">+ Ajouter un potage</button>
+                </div>
+                <h2>🍲 Potages</h2>
+                <div id="potages-list" class="items-grid"></div>
+            </div>
+        </div>
+
+        <div id="plats" class="tab-content">
+            <div class="section">
+                <div class="add-button-container">
+                    <button class="btn btn-primary" onclick="openAddModal('plats')">+ Ajouter un plat</button>
+                </div>
+                <h2>🍖 Plats</h2>
+                <div id="plats-list" class="items-grid"></div>
+            </div>
+        </div>
+
+        <div id="moules" class="tab-content">
+            <div class="section">
+                <div class="add-button-container">
+                    <button class="btn btn-primary" onclick="openAddModal('moules')">+ Ajouter une formule moules</button>
+                </div>
+                <h2>🦪 Moules-Frites</h2>
+                <div id="moules-list" class="items-grid"></div>
+            </div>
+        </div>
+
+        <div id="pizzas" class="tab-content">
+            <div class="section">
+                <div class="add-button-container">
+                    <button class="btn btn-primary" onclick="openAddModal('pizzas')">+ Ajouter une pizza</button>
+                </div>
+                <h2>🍕 Pizzas</h2>
+                <div id="pizzas-list" class="items-grid"></div>
+            </div>
+        </div>
+
+        <div id="formules" class="tab-content">
+            <div class="section">
+                <div class="add-button-container">
+                    <button class="btn btn-primary" onclick="openAddModal('formules')">+ Ajouter une formule</button>
+                </div>
+                <h2>📋 Formules</h2>
+                <div id="formules-list" class="items-grid"></div>
+            </div>
+        </div>
+
+        <div id="enfant" class="tab-content">
+            <div class="section">
+                <div class="add-button-container">
+                    <button class="btn btn-primary" onclick="openAddModal('enfant')">+ Ajouter un menu enfant</button>
+                </div>
+                <h2>👶 Menu Enfant</h2>
+                <div id="enfant-list" class="items-grid"></div>
+            </div>
+        </div>
+
+        <div id="desserts" class="tab-content">
+            <div class="section">
+                <div class="add-button-container">
+                    <button class="btn btn-primary" onclick="openAddModal('desserts')">+ Ajouter un dessert</button>
+                </div>
+                <h2>🍰 Desserts</h2>
+                <div id="desserts-list" class="items-grid"></div>
+            </div>
+        </div>
+
+        <div id="glaces" class="tab-content">
+            <div class="section">
+                <div class="add-button-container">
+                    <button class="btn btn-primary" onclick="openAddModal('glaces')">+ Ajouter une glace</button>
+                </div>
+                <h2>🍦 Glaces</h2>
+                <div id="glaces-list" class="items-grid"></div>
+            </div>
+        </div>
+
+        <div id="news" class="tab-content">
+            <div class="section">
+                <div class="add-button-container">
+                    <button class="btn btn-primary" onclick="openAddNewsModal()">+ Ajouter une actualité</button>
+                </div>
+                <h2>📰 Actualités</h2>
+                <div id="news-list" class="items-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal pour menu items -->
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Ajouter un élément</h2>
+            <form id="itemForm">
+                <input type="hidden" id="itemCategory">
+                <input type="hidden" id="itemId">
+
+                <div class="form-group">
+                    <label for="itemName">Nom (Français) *</label>
+                    <input type="text" id="itemName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="itemNameEn">Nom (English) *</label>
+                    <input type="text" id="itemNameEn" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="itemPrice">Prix (ex: 12,50) *</label>
+                    <input type="text" id="itemPrice" required pattern="[0-9]+,[0-9]{2}">
+                </div>
+
+                <div class="form-group">
+                    <label for="itemDescription">Description (Français)</label>
+                    <textarea id="itemDescription"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="itemDescriptionEn">Description (English)</label>
+                    <textarea id="itemDescriptionEn"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="itemIngredients">Ingrédients (Français)</label>
+                    <input type="text" id="itemIngredients">
+                </div>
+
+                <div class="form-group">
+                    <label for="itemIngredientsEn">Ingrédients (English)</label>
+                    <input type="text" id="itemIngredientsEn">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    <button type="button" class="btn btn-delete" onclick="closeModal()">Annuler</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal pour actualités -->
+    <div id="newsModal" class="modal">
+        <div class="modal-content">
+            <h2 id="newsModalTitle">Ajouter une actualité</h2>
+            <form id="newsForm">
+                <input type="hidden" id="newsId">
+
+                <div class="form-group">
+                    <label for="newsTitle">Titre *</label>
+                    <input type="text" id="newsTitle" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="newsDate">Date *</label>
+                    <input type="date" id="newsDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="newsContent">Contenu *</label>
+                    <textarea id="newsContent" required style="min-height: 200px;"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    <button type="button" class="btn btn-delete" onclick="closeNewsModal()">Annuler</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
