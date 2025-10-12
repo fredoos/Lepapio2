@@ -1,0 +1,15 @@
+# Headers de sécurité et performance
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Cache-Control: public, max-age=31536000
+
+# Headers spécifiques pour les assets
+/assets/*
+  Cache-Control: public, max-age=31536000
+
+# Headers pour l'admin
+/admin/*
+  X-Frame-Options: SAMEORIGIN

@@ -1,0 +1,23 @@
+{
+  "name": "Le Papio Restaurant",
+  "short_name": "Le Papio",
+  "description": "Restaurant Le Papio à Cherbourg : cuisine normande authentique, pizzas artisanales et spécialités de la mer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#6EB8B2",
+  "theme_color": "#6EB8B2",
+  "icons": [
+    {
+      "src": "/papio.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/papio.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+OK
+Status: Healthy
+Service: Le Papio Restaurant - Cherbourg-en-Cotentin
+Type: Restaurant Website
+Last Updated: 2025-01-15T20:00:00Z
+Version: 1.0.0
+Location: 24 quai de Caligny, 50100 Cherbourg-en-Cotentin
+Phone: 02 33 92 18 45
+Hours: Closed Tuesdays, Mon-Wed-Sun: 12h-14h / 19h-22h
+Hosting: Netlify
+Domain: lepapio.fr
+Components: ✅ Menu ✅ Gallery ✅ Contact ✅ Reservations

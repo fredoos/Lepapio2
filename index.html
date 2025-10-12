@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Le Papio" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href="https://lepapio.fr/" />
+    <!-- Structured Data for Restaurant -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Le Papio",
+      "image": "https://lepapio.fr/facade.jpg",
+      "@id": "https://lepapio.fr/",
+      "url": "https://lepapio.fr",
+      "telephone": "02 33 92 18 45",
+      "email": "restaurantlepapio@gmail.com",
+      "priceRange": "€€",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "24 quai de Caligny",
+        "addressLocality": "Cherbourg-en-Cotentin",
+        "postalCode": "50100",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 49.639980,
+        "longitude": -1.621612
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday", 
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "12:00",
+          "closes": "14:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday", 
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "19:00",
+          "closes": "22:00"
+        }
+      ],
+      "servesCuisine": ["French", "Italian", "Pizza", "Seafood"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.5",
+        "reviewCount": "42"
+      }
+    }
+    </script>
+    <meta name="description" content="Restaurant Le Papio à Cherbourg : cuisine normande authentique, pizzas artisanales et spécialités de la mer face au port. Réservations 02 33 92 18 45.">
+    <meta name="keywords" content="restaurant Cherbourg, pizzeria Cherbourg, Le Papio, cuisine normande, spécialités mer, pizza artisanale, restaurant port Cherbourg">
+    <meta name="author" content="Le Papio Restaurant">
+    <meta property="og:title" content="Le Papio - Restaurant Pizzeria Cherbourg-en-Cotentin">
+    <meta property="og:description" content="Restaurant Le Papio à Cherbourg : cuisine normande authentique, pizzas artisanales et spécialités de la mer face au port. Réservations 02 33 92 18 45.">
+    <meta property="og:type" content="restaurant">
+    <meta property="og:url" content="https://lepapio.fr">
+    <meta property="og:image" content="https://lepapio.fr/facade.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Le Papio - Restaurant Pizzeria Cherbourg-en-Cotentin">
+    <meta name="twitter:description" content="Restaurant Le Papio à Cherbourg : cuisine normande authentique, pizzas artisanales et spécialités de la mer face au port.">
+    <meta name="twitter:image" content="https://lepapio.fr/facade.jpg">
+    <title>Le Papio Cherbourg | Restaurant Pizzeria Port</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Boat sailing animation */
+@keyframes sailing {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-3px) translateX(-2px) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-5px) translateX(2px) rotate(1deg);
+  }
+  75% {
+    transform: translateY(-2px) translateX(-1px) rotate(-1deg);
+  }
+}
+
+/* Wave animation under boat */
+@keyframes wave {
+  0%, 100% {
+    transform: translateX(-10px) scaleX(0.8);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateX(4px) scaleX(1.2);
+    opacity: 0.6;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6EB8B2;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5a9a95;
+}
+
+/* Animation de la mouette */
+@keyframes seagull-bounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-seagull-fly {
+  animation: seagull-bounce 0.6s ease-in-out infinite;
+}

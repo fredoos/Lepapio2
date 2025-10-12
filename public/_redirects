@@ -1,0 +1,5 @@
+# Redirections pour gérer www vers non-www
+https://www.lepapio.fr/* https://lepapio.fr/:splat 301!
+
+# Redirection pour l'administration
+/admin-simple /admin-simple.html 200
