@@ -1,0 +1,496 @@
+{
+  "entrees": [
+    {
+      "name": "Salade de gésiers, lardons, vinaigre de framboise",
+      "nameEn": "Warm gizzard & bacon salad, raspberry vinegar",
+      "price": "9,50",
+      "description": "Tiède et généreuse, relevée par une pointe fruitée.",
+      "descriptionEn": "Rustic and savoury with a fruity lift.",
+      "available": true
+    },
+    {
+      "name": "Céleri rémoulade à l'andouille de Vire",
+      "nameEn": "Celeriac rémoulade with Vire andouille",
+      "price": "6,00",
+      "description": "Le classique croquant, twisté par une andouille de caractère.",
+      "descriptionEn": "Crunchy classic, boosted by smoky Norman sausage.",
+      "available": true
+    },
+    {
+      "name": "Avocat tiède, sauce camembert",
+      "nameEn": "Warm avocado, Camembert sauce",
+      "price": "6,00",
+      "description": "Fondant d'avocat nappé d'un camembert crémeux.",
+      "descriptionEn": "Melt-in-the-mouth avocado under a silky Camembert blanket.",
+      "available": true
+    },
+    {
+      "name": "Assiette de charcuterie",
+      "nameEn": "Cured-meats board",
+      "price": "7,50",
+      "description": "Sélection du moment, tranchée minute.",
+      "descriptionEn": "Chef's selection, sliced to order.",
+      "available": true
+    },
+    {
+      "name": "Filet de hareng à l'huile, pomme de terre tiède",
+      "nameEn": "Oil-marinated herring, warm potatoes",
+      "price": "5,50",
+      "description": "Marinade douce, pommes fondantes, tout en équilibre.",
+      "descriptionEn": "Gentle cure, buttery potatoes—perfect balance.",
+      "available": true
+    }
+  ],
+  "potages": [
+    {
+      "name": "Velouté de chou-fleur",
+      "nameEn": "Cauliflower velouté",
+      "price": "12,00",
+      "description": "Soyeux et réconfortant.",
+      "descriptionEn": "Smooth and comforting.",
+      "available": true
+    },
+    {
+      "name": "Soupe de poisson",
+      "nameEn": "Fish soup",
+      "price": "12,00",
+      "description": "Servie avec rouille, croûtons et fromage râpé.",
+      "descriptionEn": "With rouille, croutons and grated cheese.",
+      "available": true
+    },
+    {
+      "name": "Potage de légumes",
+      "nameEn": "Vegetable soup",
+      "price": "12,00",
+      "description": "Crème fraîche, fromage râpé, croûtons.",
+      "descriptionEn": "Crème fraîche, grated cheese, croutons.",
+      "available": true
+    },
+    {
+      "name": "Velouté de courges",
+      "nameEn": "Squash velouté",
+      "price": "12,00",
+      "description": "Crème fraîche, lardons grillés.",
+      "descriptionEn": "Crème fraîche, grilled bacon.",
+      "available": true
+    }
+  ],
+  "plats": [
+    {
+      "name": "Pavé d'andouille de Vire grillé, sauce camembert",
+      "nameEn": "Grilled Vire andouille steak, Camembert sauce",
+      "price": "16,00",
+      "description": "Le terroir normand, grillé et nappé minute.",
+      "descriptionEn": "Norman terroir, seared and sauced.",
+      "available": true
+    },
+    {
+      "name": "Côtes d'agneau",
+      "nameEn": "Lamb cutlets",
+      "price": "18,00",
+      "description": "Dorées à la plancha, jus court.",
+      "descriptionEn": "Plancha-seared, with a light jus.",
+      "available": true
+    },
+    {
+      "name": "Entrecôte grillée (250 g)",
+      "nameEn": "Grilled rib-eye (250 g)",
+      "price": "21,00",
+      "description": "Maturation soignée, cuisson au choix. Sauces maison : tartare, camembert, poivre, béarnaise.",
+      "descriptionEn": "Properly matured, cooked your way. House sauces: tartare, Camembert, peppercorn, Béarnaise.",
+      "available": true
+    },
+    {
+      "name": "Poêlée de Saint-Jacques au Noilly Prat",
+      "nameEn": "Pan-seared scallops with Noilly Prat",
+      "price": "19,00",
+      "description": "Nacrées, déglacées au vermouth pour un parfum délicat.",
+      "descriptionEn": "Just-set and aromatic with vermouth.",
+      "available": true
+    },
+    {
+      "name": "Brochette de Saint-Jacques au lard grillé",
+      "nameEn": "Scallop & crispy bacon skewer",
+      "price": "19,00",
+      "description": "Terre-mer gourmand, lard croustillant.",
+      "descriptionEn": "Surf-and-turf indulgence.",
+      "available": true
+    },
+    {
+      "name": "Fish & Chips (pêche du jour)",
+      "nameEn": "Fish & chips (catch of the day)",
+      "price": "17,00",
+      "description": "Pâte légère, frites maison et sauce tartare.",
+      "descriptionEn": "Light batter, hand-cut chips, tartare sauce.",
+      "available": true
+    }
+  ],
+  "moules": [
+    {
+      "name": "Moules marinière",
+      "nameEn": "Mussels marinière",
+      "price": "12,50",
+      "description": "Moules fraîches mijotées dans un bouillon de vin blanc, ail et persil.",
+      "descriptionEn": "Fresh mussels in white wine, garlic and parsley.",
+      "available": true
+    },
+    {
+      "name": "Moules à la crème",
+      "nameEn": "Mussels with cream",
+      "price": "12,50",
+      "description": "Version onctueuse et généreuse aux arômes doux.",
+      "descriptionEn": "Creamy and generous version.",
+      "available": true
+    },
+    {
+      "name": "Moules au curry",
+      "nameEn": "Mussels with curry",
+      "price": "12,50",
+      "description": "Recette exotique et parfumée, sauce crémeuse au curry doux.",
+      "descriptionEn": "Exotic and fragrant with mild curry.",
+      "available": true
+    }
+  ],
+  "pizzas": [
+    {
+      "name": "Margherita",
+      "nameEn": "Margherita",
+      "price": "11,00",
+      "description": "Le grand classique, simple et bon.",
+      "descriptionEn": "The great classic.",
+      "ingredients": "Tomate, mozzarella",
+      "ingredientsEn": "Tomato, mozzarella",
+      "available": true
+    },
+    {
+      "name": "Jambon",
+      "nameEn": "Ham",
+      "price": "12,00",
+      "description": "Pizza au jambon blanc et mozzarella.",
+      "descriptionEn": "White ham and mozzarella.",
+      "ingredients": "Tomate, jambon blanc, mozzarella",
+      "ingredientsEn": "Tomato, white ham, mozzarella",
+      "available": true
+    },
+    {
+      "name": "Reine",
+      "nameEn": "Regina",
+      "price": "14,00",
+      "description": "La reine des pizzas avec champignons et jambon.",
+      "descriptionEn": "The queen of pizzas.",
+      "ingredients": "Tomate, mozzarella, champignons, jambon",
+      "ingredientsEn": "Tomato, mozzarella, mushrooms, ham",
+      "available": true
+    },
+    {
+      "name": "Calzone (chausson)",
+      "nameEn": "Calzone (folded)",
+      "price": "14,00",
+      "description": "Pizza fermée garnie généreusement.",
+      "descriptionEn": "Folded and generously filled.",
+      "ingredients": "Tomate, mozzarella, jambon, œuf",
+      "ingredientsEn": "Tomato, mozzarella, ham, egg",
+      "available": true
+    },
+    {
+      "name": "Savoyarde",
+      "nameEn": "Savoyarde",
+      "price": "17,00",
+      "description": "Saveurs montagnardes : lardons, reblochon et pommes de terre.",
+      "descriptionEn": "Mountain flavours.",
+      "ingredients": "Tomate, lardons, oignons, pommes de terre, reblochon, crème",
+      "ingredientsEn": "Tomato, bacon, onions, potatoes, Reblochon, cream",
+      "available": true
+    },
+    {
+      "name": "Campagnarde",
+      "nameEn": "Country-style",
+      "price": "17,00",
+      "description": "Pizza rustique au camembert et lardons.",
+      "descriptionEn": "Rustic with Camembert.",
+      "ingredients": "Tomate, lardons, oignons, pommes de terre, camembert AOP, crème",
+      "ingredientsEn": "Tomato, bacon, onions, potatoes, Camembert AOP, cream",
+      "available": true
+    },
+    {
+      "name": "Viroise",
+      "nameEn": "Viroise",
+      "price": "17,00",
+      "description": "La spécialité locale : andouille de Vire et camembert.",
+      "descriptionEn": "Local specialty.",
+      "ingredients": "Tomate, andouille de Vire, camembert AOP, crème",
+      "ingredientsEn": "Tomato, Vire andouille, Camembert AOP, cream",
+      "available": true
+    },
+    {
+      "name": "Chèvre",
+      "nameEn": "Goat's Cheese & Honey",
+      "price": "15,00",
+      "description": "Sucrée-salée avec chèvre et miel.",
+      "descriptionEn": "Sweet and savoury.",
+      "ingredients": "Tomate, lardons, oignons, chèvre, miel",
+      "ingredientsEn": "Tomato, bacon, onions, chèvre, honey",
+      "available": true
+    },
+    {
+      "name": "4 Fromages",
+      "nameEn": "Four Cheeses",
+      "price": "15,00",
+      "description": "L'alliance de quatre fromages fondants.",
+      "descriptionEn": "Four melting cheeses.",
+      "ingredients": "Tomate, mozzarella, camembert, roquefort, chèvre",
+      "ingredientsEn": "Tomato, mozzarella, Camembert, Roquefort, chèvre",
+      "available": true
+    },
+    {
+      "name": "Fermière",
+      "nameEn": "Farmhouse",
+      "price": "14,00",
+      "description": "Pizza généreuse au poulet et champignons.",
+      "descriptionEn": "Generous chicken and mushroom.",
+      "ingredients": "Tomate, poulet, champignons, mozzarella, crème",
+      "ingredientsEn": "Tomato, chicken, mushrooms, mozzarella, cream",
+      "available": true
+    },
+    {
+      "name": "Indienne",
+      "nameEn": "Indian",
+      "price": "14,00",
+      "description": "Voyage épicé au curry et poulet.",
+      "descriptionEn": "Spicy journey.",
+      "ingredients": "Tomate, poulet, poivrons, curry, mozzarella",
+      "ingredientsEn": "Tomato, chicken, peppers, curry, mozzarella",
+      "available": true
+    },
+    {
+      "name": "Chorizo",
+      "nameEn": "Chorizo",
+      "price": "15,00",
+      "description": "Piquante avec chorizo grillé.",
+      "descriptionEn": "Spicy with grilled chorizo.",
+      "ingredients": "Tomate, poivrons, chorizo, mozzarella",
+      "ingredientsEn": "Tomato, peppers, chorizo, mozzarella",
+      "available": true
+    },
+    {
+      "name": "Végétarienne",
+      "nameEn": "Vegetarian",
+      "price": "14,00",
+      "description": "Colorée et savoureuse aux légumes.",
+      "descriptionEn": "Colourful and tasty.",
+      "ingredients": "Tomate, pomme de terre, champignons, poivrons, mozzarella",
+      "ingredientsEn": "Tomato, potatoes, mushrooms, peppers, mozzarella",
+      "available": true
+    },
+    {
+      "name": "Norvégienne",
+      "nameEn": "Norwegian",
+      "price": "17,00",
+      "description": "Raffinée au saumon fumé et crème citronnée.",
+      "descriptionEn": "Refined with smoked salmon.",
+      "ingredients": "Tomate, saumon fumé, mozzarella, crème citronnée, ciboulette",
+      "ingredientsEn": "Tomato, smoked salmon, mozzarella, lemon cream, chives",
+      "available": true
+    },
+    {
+      "name": "Napolitaine",
+      "nameEn": "Neapolitan",
+      "price": "16,00",
+      "description": "Méditerranéenne aux anchois et câpres.",
+      "descriptionEn": "Mediterranean classic.",
+      "ingredients": "Tomate, anchois, câpres, olives, mozzarella",
+      "ingredientsEn": "Tomato, anchovies, capers, olives, mozzarella",
+      "available": true
+    },
+    {
+      "name": "Hawaïenne",
+      "nameEn": "Hawaiian",
+      "price": "16,00",
+      "description": "Sucrée-salée avec jambon et ananas.",
+      "descriptionEn": "Sweet and savoury.",
+      "ingredients": "Tomate, jambon, ananas, mozzarella",
+      "ingredientsEn": "Tomato, ham, pineapple, mozzarella",
+      "available": true
+    },
+    {
+      "name": "Papio",
+      "nameEn": "Papio (signature)",
+      "price": "17,00",
+      "description": "La signature maison : camembert, jambon du Cotentin, pomme et caramel de cidre.",
+      "descriptionEn": "Our house signature.",
+      "ingredients": "Tomate, camembert AOP, jambon du Cotentin, pomme, caramel de cidre",
+      "ingredientsEn": "Tomato, Camembert AOP, Cotentin ham, apple, cider-caramel",
+      "available": true
+    }
+  ],
+  "formules": [
+    {
+      "name": "Plat du jour (ardoise)",
+      "nameEn": "Dish of the day (blackboard)",
+      "price": "15,00",
+      "description": "Notre spécialité du moment, préparée avec des produits frais et de saison.",
+      "descriptionEn": "Our specialty of the moment, with fresh seasonal ingredients.",
+      "available": true
+    },
+    {
+      "name": "Duo",
+      "nameEn": "Duo",
+      "price": "18,00",
+      "description": "Entrée + plat (charcuterie / hareng / céleri-andouille + plat du jour) ou Plat + dessert (plat du jour + île flottante / mousse chocolat / 2 boules de glace / dessert du jour).",
+      "descriptionEn": "Starter + main (charcuterie / herring / celeriac-andouille + dish of the day) or Main + dessert (dish of the day + floating island / chocolate mousse / 2 scoops / dessert of the day).",
+      "available": true
+    },
+    {
+      "name": "Trio (entrée + plat + dessert)",
+      "nameEn": "Trio (starter + main + dessert)",
+      "price": "21,00",
+      "description": "Même choix d'entrées et desserts que le Duo + plat du jour.",
+      "descriptionEn": "Same starter/dessert choices as the Duo + dish of the day.",
+      "available": true
+    }
+  ],
+  "enfant": [
+    {
+      "name": "Menu enfant (-12 ans)",
+      "nameEn": "Kids' Menu (under 12)",
+      "price": "10,00",
+      "description": "Steak haché ou mini fish & chips • Frites ou légumes • 1 boule de glace ou 1 push-up • Diabolo ou sirop à l'eau.",
+      "descriptionEn": "Minced steak or mini fish & chips • Fries or vegetables • 1 scoop ice cream or push-up • Lemonade (diabolo) or cordial.",
+      "available": true
+    }
+  ],
+  "desserts": [
+    {
+      "name": "Île flottante",
+      "nameEn": "Floating island",
+      "price": "6,50",
+      "description": "Le dessert réconfortant par excellence, léger et savoureux.",
+      "descriptionEn": "Light and comforting classic.",
+      "available": true
+    },
+    {
+      "name": "Crème brûlée",
+      "nameEn": "Crème brûlée",
+      "price": "7,50",
+      "description": "Onctueuse crème vanillée surmontée de son caramel craquant.",
+      "descriptionEn": "Smooth vanilla cream with crispy caramel top.",
+      "available": true
+    },
+    {
+      "name": "Mousse au chocolat",
+      "nameEn": "Chocolate mousse",
+      "price": "6,50",
+      "description": "Une mousse aérienne et intense pour les amateurs de chocolat.",
+      "descriptionEn": "Airy and rich for chocolate lovers.",
+      "available": true
+    },
+    {
+      "name": "Tarte Tatin, boule vanille",
+      "nameEn": "Tarte Tatin with vanilla ice cream",
+      "price": "8,50",
+      "description": "La tarte aux pommes caramélisées, servie avec glace vanille.",
+      "descriptionEn": "Caramelised apple tart with vanilla ice cream.",
+      "available": true
+    },
+    {
+      "name": "Café ou thé gourmand",
+      "nameEn": "Gourmet coffee or tea",
+      "price": "9,00",
+      "description": "Accompagné de petites douceurs maison.",
+      "descriptionEn": "Mini-dessert selection.",
+      "available": true
+    },
+    {
+      "name": "Irish coffee",
+      "nameEn": "Irish coffee",
+      "price": "8,00",
+      "description": "La parfaite alliance entre café, whisky et chantilly.",
+      "descriptionEn": "Perfect blend of coffee, whiskey and cream.",
+      "available": true
+    },
+    {
+      "name": "Dessert du moment (ardoise)",
+      "nameEn": "Dessert of the moment",
+      "price": "6,00",
+      "description": "Notre création saisonnière préparée avec passion.",
+      "descriptionEn": "Seasonal creation.",
+      "available": true
+    }
+  ],
+  "glaces": [
+    {
+      "name": "Coupe 1 boule",
+      "nameEn": "1 scoop",
+      "price": "3,00",
+      "description": "Une boule de votre parfum préféré.",
+      "descriptionEn": "One scoop of your choice.",
+      "available": true
+    },
+    {
+      "name": "Coupe 2 boules",
+      "nameEn": "2 scoops",
+      "price": "5,50",
+      "description": "Deux boules dans nos délicieux parfums maison.",
+      "descriptionEn": "Two scoops of your choice.",
+      "ingredients": "Parfums : chocolat, vanille, pistache, rhum-raisin, caramel fleur de sel, citron, pomme, cassis, coco, menthe, fraise",
+      "ingredientsEn": "Flavours: chocolate, vanilla, pistachio, rum-raisin, salted-caramel, lemon, apple, blackcurrant, coconut, mint, strawberry",
+      "available": true
+    },
+    {
+      "name": "Liégeois (café, caramel ou chocolat)",
+      "nameEn": "Liégeoise (coffee / caramel / chocolate)",
+      "price": "7,50",
+      "description": "Glace vanille, sauce et chantilly maison.",
+      "descriptionEn": "Vanilla ice cream with sauce and whipped cream.",
+      "available": true
+    },
+    {
+      "name": "Banana split",
+      "nameEn": "Banana split",
+      "price": "8,00",
+      "description": "La star américaine : banane, glaces et chantilly.",
+      "descriptionEn": "The American classic.",
+      "available": true
+    },
+    {
+      "name": "Coupe Martiniquaise",
+      "nameEn": "Martiniquaise",
+      "price": "7,50",
+      "description": "Rhum-raisin, banane, sauce chocolat, chantilly pour un voyage aux Antilles.",
+      "descriptionEn": "Rum-raisin, banana, chocolate sauce, whipped cream.",
+      "available": true
+    },
+    {
+      "name": "Coupe Colonel",
+      "nameEn": "Colonel",
+      "price": "8,50",
+      "description": "Sorbet citron relevé d'une pointe de vodka.",
+      "descriptionEn": "Lemon sorbet with vodka.",
+      "available": true
+    },
+    {
+      "name": "Coupe Normande",
+      "nameEn": "Normande",
+      "price": "8,50",
+      "description": "Notre spécialité locale aux saveurs du terroir : sorbet pomme et calvados.",
+      "descriptionEn": "Apple sorbet with Calvados.",
+      "available": true
+    },
+    {
+      "name": "Dame blanche",
+      "nameEn": "Dame blanche",
+      "price": "7,50",
+      "description": "Glace vanille, sauce chocolat chaude, chantilly.",
+      "descriptionEn": "Vanilla ice cream, hot chocolate sauce, whipped cream.",
+      "available": true
+    },
+    {
+      "name": "Supplément chantilly maison",
+      "nameEn": "Extra whipped cream (house-made)",
+      "price": "1,50",
+      "description": "Pour encore plus de gourmandise.",
+      "descriptionEn": "For even more indulgence.",
+      "available": true
+    }
+  ]
+}
