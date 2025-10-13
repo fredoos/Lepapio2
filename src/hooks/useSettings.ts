@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabase';
 import { Settings, WeekSchedule } from '../types/settings';
 
 const defaultSchedule: WeekSchedule = {
@@ -49,37 +48,17 @@ export const useSettings = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    loadOpeningHours();
-    fetchSettings();
-
-    // Only subscribe to changes if Supabase is configured
-    if (import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY) {
-      const channel = supabase
-        .channel('settings-changes')
-        .on(
-          'postgres_changes',
-          {
-            event: '*',
-            schema: 'public',
-            table: 'settings'
-          },
-          () => {
-            fetchSettings();
-          }
-        )
-        .subscribe();
-
-      return () => {
-        supabase.removeChannel(channel);
-      };
-    }
+    loadSettings();
   }, []);
 
-  const loadOpeningHours = async () => {
+  const loadSettings = async () => {
     try {
-      const response = await fetch('/src/content/settings/opening-hours.yml?raw');
-      if (response.ok) {
-        const text = await response.text();
+      setLoading(true);
+
+      // Load opening hours
+      const hoursResponse = await fetch(`/src/content/settings/opening-hours.yml?t=${Date.now()}`);
+      if (hoursResponse.ok) {
+        const text = await hoursResponse.text();
         const lines = text.split('\n');
         const schedule: WeekSchedule = {} as WeekSchedule;
 
@@ -126,59 +105,40 @@ export const useSettings = () => {
           opening_hours: schedule
         }));
       }
-    } catch (error) {
-      console.warn('Could not load opening hours from YAML:', error);
-    }
-  };
 
-  const fetchSettings = async () => {
-    try {
-      // Check if Supabase is configured
-      if (!import.meta.env.VITE_SUPABASE_URL || !import.meta.env.VITE_SUPABASE_ANON_KEY) {
-        console.warn('Supabase not configured, using default settings');
-        setLoading(false);
-        return;
-      }
+      // Load general settings
+      const generalResponse = await fetch(`/src/content/settings/general.yml?t=${Date.now()}`);
+      if (generalResponse.ok) {
+        const text = await generalResponse.text();
+        const lines = text.split('\n');
+        let logoUrl = '/bateau.png';
+        let restaurantName = 'Le Papio';
 
-      const { data, error: fetchError } = await supabase
-        .from('settings')
-        .select('key, value')
-        .returns<Array<{ key: string; value: any }>>();
-
-      if (fetchError) {
-        console.error('Error fetching settings:', fetchError);
-        setError(fetchError.message);
-        setLoading(false);
-        return;
-      }
-
-      if (data && data.length > 0) {
-        const settingsObj: Settings = {
-          opening_hours: null,
-          logo_url: null
-        };
-
-        data.forEach((item) => {
-          if (item.key === 'opening_hours') {
-            settingsObj.opening_hours = item.value as WeekSchedule;
-          } else if (item.key === 'logo_url') {
-            settingsObj.logo_url = typeof item.value === 'string' ? item.value : '/bateau.png';
+        lines.forEach(line => {
+          const logoMatch = line.match(/^logo_url:\s*["']?([^"'\n]+)["']?/);
+          if (logoMatch) {
+            logoUrl = logoMatch[1].trim();
+          }
+          const nameMatch = line.match(/^restaurant_name:\s*["']?([^"'\n]+)["']?/);
+          if (nameMatch) {
+            restaurantName = nameMatch[1].trim();
           }
         });
 
-        setSettings({
-          opening_hours: settingsObj.opening_hours || defaultSchedule,
-          logo_url: settingsObj.logo_url || '/bateau.png'
-        });
+        setSettings(prev => ({
+          ...prev,
+          logo_url: logoUrl,
+          restaurant_name: restaurantName
+        }));
       }
 
       setLoading(false);
-    } catch (err) {
-      console.error('Error in fetchSettings:', err);
-      setError(err instanceof Error ? err.message : 'Unknown error');
+    } catch (error) {
+      console.error('Could not load settings from YAML:', error);
+      setError(error instanceof Error ? error.message : 'Unknown error');
       setLoading(false);
     }
   };
 
-  return { settings, loading, error, refetch: fetchSettings };
+  return { settings, loading, error, refetch: loadSettings };
 };

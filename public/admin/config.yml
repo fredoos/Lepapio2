@@ -14,6 +14,16 @@ collections:
   - name: "settings"
     label: "⚙️ Paramètres"
     files:
+      - name: "general"
+        label: "Informations générales"
+        file: "src/content/settings/general.yml"
+        fields:
+          - {label: "Nom du restaurant", name: "restaurant_name", widget: "string", default: "Le Papio"}
+          - {label: "URL du logo", name: "logo_url", widget: "string", default: "/bateau.png", hint: "Chemin vers l'image du logo"}
+          - {label: "Téléphone", name: "phone", widget: "string", default: "02 33 92 18 45"}
+          - {label: "Email", name: "email", widget: "string", default: "restaurantlepapio@gmail.com"}
+          - {label: "Adresse", name: "address", widget: "text", default: "24 quai de Caligny, 50100 Cherbourg-en-Cotentin"}
+
       - name: "menu_visibility"
         label: "Visibilité des sections du menu"
         file: "src/content/settings/menu-visibility.yml"

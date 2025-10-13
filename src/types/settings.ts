@@ -23,4 +23,5 @@ export interface WeekSchedule {
 export interface Settings {
   opening_hours: WeekSchedule | null;
   logo_url: string | null;
+  restaurant_name?: string;
 }
