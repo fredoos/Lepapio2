@@ -35,11 +35,18 @@ Une fois configuré, les administrateurs peuvent accéder au CMS :
 
 Le CMS permet de gérer :
 
+### Paramètres (⚙️)
+- **Visibilité des sections du menu** - Activer/désactiver des sections entières
+  - Parfait pour masquer les "Moules" en hiver
+  - Ou masquer les "Potages" en été
+  - Simple case à cocher pour chaque section
+  - Les sections masquées n'apparaissent plus sur le site
+
 ### Menu
 - **Entrées** - Tous les hors-d'œuvres
-- **Potages** - Soupes et veloutés
+- **Potages** - Soupes et veloutés (masquable en été)
 - **Plats** - Plats principaux
-- **Moules** - Moules-frites
+- **Moules** - Moules-frites (masquable en hiver)
 - **Pizzas** - Toutes les pizzas
 - **Formules** - Menus et formules
 - **Menu Enfant** - Menu pour les enfants

@@ -8,6 +8,23 @@ public_folder: "/images/uploads"
 locale: "fr"
 
 collections:
+  - name: "settings"
+    label: "⚙️ Paramètres"
+    files:
+      - name: "menu_visibility"
+        label: "Visibilité des sections du menu"
+        file: "src/content/settings/menu-visibility.yml"
+        fields:
+          - {label: "Afficher les Entrées", name: "show_entrees", widget: "boolean", default: true}
+          - {label: "Afficher les Potages (hiver)", name: "show_potages", widget: "boolean", default: true, hint: "Désactiver en été"}
+          - {label: "Afficher les Plats", name: "show_plats", widget: "boolean", default: true}
+          - {label: "Afficher les Moules-Frites (été)", name: "show_moules", widget: "boolean", default: true, hint: "Désactiver en hiver"}
+          - {label: "Afficher les Pizzas", name: "show_pizzas", widget: "boolean", default: true}
+          - {label: "Afficher les Formules", name: "show_formules", widget: "boolean", default: true}
+          - {label: "Afficher le Menu Enfant", name: "show_enfant", widget: "boolean", default: true}
+          - {label: "Afficher les Desserts", name: "show_desserts", widget: "boolean", default: true}
+          - {label: "Afficher les Glaces", name: "show_glaces", widget: "boolean", default: true}
+
   - name: "menu_entrees"
     label: "Menu - Entrées"
     folder: "src/content/menu/entrees"
