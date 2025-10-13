@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Test Settings</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <h1>Test des paramètres Supabase</h1>
+    <div id="results"></div>
+
+    <script>
+        const supabaseUrl = 'https://fpsrmqcbruojllmctjzm.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwc3JtcWNicnVvamxsbWN0anptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAyNzI5NjIsImV4cCI6MjA3NTg0ODk2Mn0.xGD7L2lU1e6y_m1fkUl_77FUAmHCk7beQ3aijNfY8hk';
+
+        const { createClient } = supabase;
+        const client = createClient(supabaseUrl, supabaseKey);
+
+        async function testSettings() {
+            const results = document.getElementById('results');
+
+            try {
+                const { data, error } = await client
+                    .from('settings')
+                    .select('key, value');
+
+                if (error) {
+                    results.innerHTML = '<pre style="color: red;">Erreur: ' + JSON.stringify(error, null, 2) + '</pre>';
+                    return;
+                }
+
+                results.innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+
+                // Afficher spécifiquement closure_note
+                const closureNote = data.find(item => item.key === 'closure_note');
+                if (closureNote) {
+                    results.innerHTML += '<h2>Note de fermeture:</h2><p style="font-size: 18px; font-weight: bold;">' + closureNote.value + '</p>';
+                }
+            } catch (err) {
+                results.innerHTML = '<pre style="color: red;">' + err.message + '</pre>';
+            }
+        }
+
+        testSettings();
+    </script>
+</body>
+</html>
