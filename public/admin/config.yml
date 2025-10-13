@@ -18,7 +18,6 @@ collections:
           - {label: "Afficher les Entrées", name: "show_entrees", widget: "boolean", default: true}
           - {label: "Afficher les Potages (hiver)", name: "show_potages", widget: "boolean", default: true, hint: "Désactiver en été"}
           - {label: "Afficher les Plats", name: "show_plats", widget: "boolean", default: true}
-          - {label: "Afficher les Moules-Frites (été)", name: "show_moules", widget: "boolean", default: true, hint: "Désactiver en hiver"}
           - {label: "Afficher les Pizzas", name: "show_pizzas", widget: "boolean", default: true}
           - {label: "Afficher les Formules", name: "show_formules", widget: "boolean", default: true}
           - {label: "Afficher le Menu Enfant", name: "show_enfant", widget: "boolean", default: true}
@@ -60,22 +59,6 @@ collections:
   - name: "menu_plats"
     label: "Menu - Plats"
     folder: "src/content/menu/plats"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Nom (Français)", name: "name", widget: "string"}
-      - {label: "Nom (Anglais)", name: "nameEn", widget: "string"}
-      - {label: "Prix", name: "price", widget: "string", pattern: ['^[0-9]+,[0-9]{2}$', "Format: 12,50"]}
-      - {label: "Description (Français)", name: "description", widget: "text", required: false}
-      - {label: "Description (Anglais)", name: "descriptionEn", widget: "text", required: false}
-      - {label: "Ingrédients (Français)", name: "ingredients", widget: "string", required: false}
-      - {label: "Ingrédients (Anglais)", name: "ingredientsEn", widget: "string", required: false}
-      - {label: "Ordre d'affichage", name: "order", widget: "number", default: 1}
-      - {label: "Disponible", name: "available", widget: "boolean", default: true}
-
-  - name: "menu_moules"
-    label: "Menu - Moules"
-    folder: "src/content/menu/moules"
     create: true
     slug: "{{slug}}"
     fields:

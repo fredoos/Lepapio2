@@ -4,7 +4,6 @@ interface MenuVisibility {
   show_entrees: boolean;
   show_potages: boolean;
   show_plats: boolean;
-  show_moules: boolean;
   show_pizzas: boolean;
   show_formules: boolean;
   show_enfant: boolean;
@@ -17,7 +16,6 @@ export const useMenuVisibility = (): MenuVisibility => {
     show_entrees: true,
     show_potages: true,
     show_plats: true,
-    show_moules: true,
     show_pizzas: true,
     show_formules: true,
     show_enfant: true,

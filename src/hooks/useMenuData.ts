@@ -73,7 +73,6 @@ export const useMenuData = (): MenuData => {
     entrees: [],
     potages: [],
     plats: [],
-    moules: [],
     pizzas: [],
     formules: [],
     enfant: [],
@@ -84,7 +83,7 @@ export const useMenuData = (): MenuData => {
   useEffect(() => {
     const loadAllCategories = async () => {
       try {
-        const categories = ['entrees', 'potages', 'plats', 'moules', 'pizzas', 'formules', 'enfant', 'desserts', 'glaces'];
+        const categories = ['entrees', 'potages', 'plats', 'pizzas', 'formules', 'enfant', 'desserts', 'glaces'];
         const loadedData: Partial<MenuData> = {};
 
         await Promise.all(

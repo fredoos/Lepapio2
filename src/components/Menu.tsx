@@ -26,7 +26,6 @@ const Menu = () => {
     { id: 'entrees', label: t('menu.starters'), icon: Utensils, visible: visibility.show_entrees },
     { id: 'potages', label: t('menu.soups'), icon: Fish, visible: visibility.show_potages },
     { id: 'plats', label: t('menu.mains'), icon: Beef, visible: visibility.show_plats },
-    { id: 'moules', label: t('menu.mussels'), icon: ChefHat, visible: visibility.show_moules },
     { id: 'pizzas', label: t('menu.pizzas'), icon: Pizza, visible: visibility.show_pizzas },
     { id: 'formules', label: t('menu.formulas'), icon: Clock, visible: visibility.show_formules },
     { id: 'enfant', label: t('menu.kids'), icon: Baby, visible: visibility.show_enfant },
@@ -185,25 +184,6 @@ const Menu = () => {
               </div>
             </div>
           )}
-
-         {activeCategory === 'moules' && (
-           <div className="mt-8 pt-6 border-t border-gray-200">
-             <div className="bg-green-50 p-4 rounded-lg">
-               <div className="flex items-start space-x-2">
-                 <div className="w-3 h-3 bg-green-500 rounded-full mt-1 flex-shrink-0"></div>
-                 <div className="text-sm text-green-800">
-                    <p className="font-semibold">{t('menu.mussels_fries_homemade')}</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-2 mt-3">
-                  <div className="w-3 h-3 bg-green-500 rounded-full mt-1 flex-shrink-0"></div>
-                  <div className="text-sm text-green-800">
-                    <p className="font-semibold">{t('menu.mussels_generous_portion')}</p>
-                 </div>
-               </div>
-             </div>
-           </div>
-         )}
 
           {activeCategory === 'pizzas' && (
             <div className="mt-8 pt-6 border-t border-gray-200">
