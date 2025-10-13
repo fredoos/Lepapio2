@@ -6,6 +6,28 @@
   VITE_SUPABASE_URL = "https://fpsrmqcbruojllmctjzm.supabase.co"
   VITE_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwc3JtcWNicnVvamxsbWN0anptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAyNzI5NjIsImV4cCI6MjA3NTg0ODk2Mn0.xGD7L2lU1e6y_m1fkUl_77FUAmHCk7beQ3aijNfY8hk"
 
+# Headers pour désactiver le cache sur l'admin CMS
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Pragma = "no-cache"
+    Expires = "0"
+
+[[headers]]
+  for = "/*.yml"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Pragma = "no-cache"
+    Expires = "0"
+
+[[headers]]
+  for = "/src/content/*"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Pragma = "no-cache"
+    Expires = "0"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

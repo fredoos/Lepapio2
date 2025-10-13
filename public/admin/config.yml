@@ -7,6 +7,9 @@ public_folder: "/images/uploads"
 
 locale: "fr"
 
+# Force le rechargement des fichiers sans cache
+load_config_file: false
+
 collections:
   - name: "settings"
     label: "⚙️ Paramètres"

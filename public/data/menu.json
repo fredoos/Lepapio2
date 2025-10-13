@@ -137,17 +137,6 @@
       "available": true
     },
     {
-      "name": "Brochette de Saint-Jacques au lard grillée",
-      "nameEn": "Grilled Scallop and Bacon Skewer",
-      "price": "19,00",
-      "description": "L’alliance parfaite entre le moelleux des Saint-Jacques et le croustillant du lard.",
-      "descriptionEn": "A perfect match between tender scallops and crispy grilled bacon.",
-      "ingredients": "",
-      "ingredientsEn": "",
-      "order": 1,
-      "available": true
-    },
-    {
       "name": "Côtes d’agneau",
       "nameEn": "Lamb Cutlets",
       "price": "18,00",
@@ -170,6 +159,17 @@
       "available": true
     },
     {
+      "name": "Brochette de Saint-Jacques au lard grillée",
+      "nameEn": "Grilled Scallop and Bacon Skewer",
+      "price": "19,00",
+      "description": "L’alliance parfaite entre le moelleux des Saint-Jacques et le croustillant du lard.",
+      "descriptionEn": "A perfect match between tender scallops and crispy grilled bacon.",
+      "ingredients": "",
+      "ingredientsEn": "",
+      "order": 4,
+      "available": true
+    },
+    {
       "name": "Poêlée de Saint-Jacques au Noilly Prat",
       "nameEn": "Pan-Seared Scallops with Noilly Prat",
       "price": "19,00",
@@ -188,7 +188,7 @@
       "descriptionEn": "Fresh fish of the day in crispy batter, served with homemade fries and tartar sauce.",
       "ingredients": "",
       "ingredientsEn": "",
-      "order": 7,
+      "order": 6,
       "available": true
     }
   ],
@@ -561,19 +561,8 @@
       "price": "3,00",
       "description": "Une boule de votre parfum préféré",
       "descriptionEn": "One scoop of your favorite flavor",
-      "ingredients": "Parfum: chocolat, vanille, pistache, rhum raisin, caramel fleur de sel, citron, pomme, cassis, coco, menthe, fraise ",
-      "ingredientsEn": "Flavors: chocolate, vanilla, pistachio, rum raisin, salted caramel, lemon, apple, blackcurrant, coconut, mint, strawberry",
-      "order": 1,
-      "available": true
-    },
-    {
-      "name": "Dame blanche",
-      "nameEn": "White Lady",
-      "price": "8,00",
-      "description": "Vanille et chocolat chaud, la coupe intemporelle des gourmands.",
-      "descriptionEn": "Vanilla ice cream with warm chocolate sauce — the timeless indulgence.",
-      "ingredients": "Glace vanille, sauce chocolat, chantilly",
-      "ingredientsEn": "Vanilla ice cream, chocolate sauce, whipped cream",
+      "ingredients": "",
+      "ingredientsEn": "",
       "order": 1,
       "available": true
     },
@@ -583,8 +572,8 @@
       "price": "5,50",
       "description": "Deux boules dans nos délicieux parfums maison",
       "descriptionEn": "Two scoops in our delicious homemade flavors",
-      "ingredients": "Parfums : chocolat, vanille, pistache, rhum raisin, caramel fleur de sel, citron, pomme, cassis, coco, menthe, fraise",
-      "ingredientsEn": "Flavors: chocolate, vanilla, pistachio, rum raisin, salted caramel, lemon, apple, blackcurrant, coconut, mint, strawberry",
+      "ingredients": "",
+      "ingredientsEn": "",
       "order": 2,
       "available": true
     },
@@ -618,7 +607,18 @@
       "descriptionEn": "For chocolate addicts",
       "ingredients": "",
       "ingredientsEn": "",
-      "order": 5,
+      "order": 4,
+      "available": true
+    },
+    {
+      "name": "Dame blanche",
+      "nameEn": "White Lady",
+      "price": "8,00",
+      "description": "Vanille et chocolat chaud, la coupe intemporelle des gourmands.",
+      "descriptionEn": "Vanilla ice cream with warm chocolate sauce — the timeless indulgence.",
+      "ingredients": "Glace vanille, sauce chocolat, chantilly",
+      "ingredientsEn": "Vanilla ice cream, chocolate sauce, whipped cream",
+      "order": 4,
       "available": true
     },
     {
@@ -636,10 +636,10 @@
       "name": "Coupe Martiniquaise",
       "nameEn": "Martinique Cup",
       "price": "7,50",
-      "description": "Rhum raisin, banane, chocolat et chantilly pour un voyage aux Antilles",
-      "descriptionEn": "Rum raisin, banana, chocolate and whipped cream for a trip to the Caribbean",
-      "ingredients": "",
-      "ingredientsEn": "",
+      "description": "Pour un voyage aux Antilles",
+      "descriptionEn": "For a trip to the Caribbean",
+      "ingredients": "Rhum raisin, banane, chocolat et chantilly",
+      "ingredientsEn": "Rum raisin, banana, chocolate and whipped cream",
       "order": 7,
       "available": true
     },
@@ -649,8 +649,8 @@
       "price": "8,50",
       "description": "Sorbet citron relevé d'une pointe de vodka",
       "descriptionEn": "Lemon sorbet enhanced with a touch of vodka",
-      "ingredients": "",
-      "ingredientsEn": "",
+      "ingredients": "Glace citron, vodka",
+      "ingredientsEn": "Lemon sorbet, vodka",
       "order": 8,
       "available": true
     },
@@ -660,8 +660,8 @@
       "price": "8,50",
       "description": "Notre spécialité locale aux saveurs du terroir",
       "descriptionEn": "Our local specialty with regional flavors",
-      "ingredients": "",
-      "ingredientsEn": "",
+      "ingredients": "sorbet pomme, calvados",
+      "ingredientsEn": "apple sorbet, Calvados",
       "order": 9,
       "available": true
     },

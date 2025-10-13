@@ -3,10 +3,35 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>Content Manager - Le Papio</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+    <script>
+        // Force le rechargement du config.yml sans cache
+        CMS.init({
+            config: {
+                load_config_file: true
+            }
+        });
+
+        // Ajouter un timestamp aux requêtes de configuration
+        if (window.CMS) {
+            const originalFetch = window.fetch;
+            window.fetch = function(...args) {
+                if (args[0] && typeof args[0] === 'string' &&
+                    (args[0].includes('config.yml') || args[0].includes('.yml') || args[0].includes('.md'))) {
+                    const url = new URL(args[0], window.location.origin);
+                    url.searchParams.set('_t', Date.now().toString());
+                    args[0] = url.toString();
+                }
+                return originalFetch.apply(this, args);
+            };
+        }
+    </script>
 </body>
 </html>
