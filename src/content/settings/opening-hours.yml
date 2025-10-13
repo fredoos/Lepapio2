@@ -49,13 +49,13 @@ friday:
     start: 19:00
     end: 22:00
 saturday:
-  enabled: true
+  enabled: false
   lunch:
-    enabled: true
+    enabled: false
     start: 12:00
     end: 14:00
   dinner:
-    enabled: true
+    enabled: false
     start: 19:00
     end: 22:00
 sunday:
