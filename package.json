@@ -5,11 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "node scripts/generate-menu.js && node scripts/sync-settings-to-supabase.js",
+    "prebuild": "node scripts/generate-menu.js",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "sync-settings": "node scripts/sync-settings-to-supabase.js"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.75.0",
