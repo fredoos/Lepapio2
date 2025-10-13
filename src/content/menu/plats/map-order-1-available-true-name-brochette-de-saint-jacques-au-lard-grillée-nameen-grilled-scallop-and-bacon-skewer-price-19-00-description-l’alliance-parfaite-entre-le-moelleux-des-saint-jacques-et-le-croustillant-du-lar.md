@@ -5,6 +5,6 @@ price: 19,00
 description: L’alliance parfaite entre le moelleux des Saint-Jacques et le
   croustillant du lard.
 descriptionEn: A perfect match between tender scallops and crispy grilled bacon.
-order: 1
+order: 4
 available: true
 ---
