@@ -6,6 +6,7 @@ export const useMenuData = (): MenuData => {
     entrees: [],
     potages: [],
     plats: [],
+    moules: [],
     pizzas: [],
     formules: [],
     enfant: [],

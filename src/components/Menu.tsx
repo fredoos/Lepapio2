@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChefHat, Fish, Pizza, Coffee, Utensils, Clock, Baby, IceCream, Beef, Carrot, Phone } from 'lucide-react';
+import { ChefHat, Fish, Pizza, Coffee, Utensils, Clock, Baby, IceCream, Beef, Carrot, Phone, Shell } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useMenuData } from '../hooks/useMenuData';
 import { useMenuVisibility } from '../hooks/useMenuVisibility';
@@ -26,6 +26,7 @@ const Menu = () => {
     { id: 'entrees', label: t('menu.starters'), icon: Utensils, visible: visibility.show_entrees },
     { id: 'potages', label: t('menu.soups'), icon: Fish, visible: visibility.show_potages },
     { id: 'plats', label: t('menu.mains'), icon: Beef, visible: visibility.show_plats },
+    { id: 'moules', label: t('menu.mussels'), icon: Shell, visible: visibility.show_moules },
     { id: 'pizzas', label: t('menu.pizzas'), icon: Pizza, visible: visibility.show_pizzas },
     { id: 'formules', label: t('menu.formulas'), icon: Clock, visible: visibility.show_formules },
     { id: 'enfant', label: t('menu.kids'), icon: Baby, visible: visibility.show_enfant },

@@ -170,6 +170,41 @@
       "available": true
     }
   ],
+  "moules": [
+    {
+      "name": "Moules marinière",
+      "nameEn": "Mussels marinière",
+      "price": "12,50",
+      "description": "Moules fraîches mijotées dans un bouillon de vin blanc, ail et persil.",
+      "descriptionEn": "Fresh mussels in white wine, garlic and parsley.",
+      "ingredients": "",
+      "ingredientsEn": "",
+      "order": 1,
+      "available": true
+    },
+    {
+      "name": "Moules à la crème",
+      "nameEn": "Mussels with cream",
+      "price": "12,50",
+      "description": "Version onctueuse et généreuse aux arômes doux.",
+      "descriptionEn": "Creamy and generous version.",
+      "ingredients": "",
+      "ingredientsEn": "",
+      "order": 2,
+      "available": true
+    },
+    {
+      "name": "Moules au curry",
+      "nameEn": "Mussels with curry",
+      "price": "12,50",
+      "description": "Recette exotique et parfumée, sauce crémeuse au curry doux.",
+      "descriptionEn": "Exotic and fragrant with mild curry.",
+      "ingredients": "",
+      "ingredientsEn": "",
+      "order": 3,
+      "available": true
+    }
+  ],
   "pizzas": [
     {
       "name": "Margherita",

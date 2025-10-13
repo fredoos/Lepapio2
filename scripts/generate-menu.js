@@ -7,7 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const contentDir = path.join(__dirname, '../src/content/menu');
 const outputFile = path.join(__dirname, '../public/data/menu.json');
 
-const categories = ['entrees', 'potages', 'plats', 'pizzas', 'formules', 'enfant', 'desserts', 'glaces'];
+const categories = ['entrees', 'potages', 'plats', 'moules', 'pizzas', 'formules', 'enfant', 'desserts', 'glaces'];
 
 const menuData = {};
 
