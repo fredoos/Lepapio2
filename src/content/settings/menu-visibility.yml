@@ -1,0 +1,8 @@
+show_entrees: true
+show_potages: true
+show_plats: true
+show_pizzas: true
+show_formules: true
+show_enfant: true
+show_desserts: true
+show_glaces: true

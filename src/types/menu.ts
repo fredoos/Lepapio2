@@ -13,8 +13,8 @@ export interface MenuItem {
 
 export interface MenuData {
   entrees: MenuItem[];
+  potages: MenuItem[];
   plats: MenuItem[];
-  moules: MenuItem[];
   pizzas: MenuItem[];
   formules: MenuItem[];
   enfant: MenuItem[];
