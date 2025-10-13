@@ -98,6 +98,26 @@ Deno.serve(async (req: Request) => {
       }
     }
 
+    // Mettre à jour le résumé des horaires si fourni
+    if (settings.hours_summary) {
+      const { error: hoursSummaryError } = await supabase
+        .from("settings")
+        .upsert(
+          {
+            key: "hours_summary",
+            value: settings.hours_summary,
+            updated_at: new Date().toISOString(),
+          },
+          {
+            onConflict: "key",
+          }
+        );
+
+      if (hoursSummaryError) {
+        console.error("Error updating hours summary:", hoursSummaryError);
+      }
+    }
+
     return new Response(
       JSON.stringify({ success: true, message: "Settings synchronized" }),
       {

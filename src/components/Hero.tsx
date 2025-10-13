@@ -119,7 +119,7 @@ const Hero = () => {
                 <>
                   {settings.closure_note || 'Nous consulter pour les fermetures hebdomadaires'}
                   <br />
-                  12h-14h / 19h-22h
+                  {settings.hours_summary || '12h-14h / 19h-22h'}
                 </>
               )}
             </p>

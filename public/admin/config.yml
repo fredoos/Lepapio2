@@ -21,6 +21,7 @@ collections:
           - {label: "Nom du restaurant", name: "restaurant_name", widget: "string", default: "Le Papio"}
           - {label: "URL du logo", name: "logo_url", widget: "string", default: "/bateau.png", hint: "Chemin vers l'image du logo"}
           - {label: "Note de fermeture", name: "closure_note", widget: "string", default: "Nous consulter pour les fermetures hebdomadaires", hint: "Texte affiché sur la page d'accueil pour indiquer les fermetures"}
+          - {label: "Résumé des horaires", name: "hours_summary", widget: "string", default: "12h-14h / 19h-22h", hint: "Format court des horaires affiché sur la page d'accueil (ex: 12h-14h / 19h-22h)"}
           - {label: "Téléphone", name: "phone", widget: "string", default: "02 33 92 18 45"}
           - {label: "Email", name: "email", widget: "string", default: "restaurantlepapio@gmail.com"}
           - {label: "Adresse", name: "address", widget: "text", default: "24 quai de Caligny, 50100 Cherbourg-en-Cotentin"}

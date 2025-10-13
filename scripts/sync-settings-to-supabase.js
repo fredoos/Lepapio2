@@ -67,6 +67,7 @@ async function syncSettings() {
 
     let logoUrl = '/bateau.png';
     let closureNote = 'Nous consulter pour les fermetures hebdomadaires';
+    let hoursSummary = '12h-14h / 19h-22h';
 
     generalLines.forEach(line => {
       const logoMatch = line.match(/^logo_url:\s*["']?([^"'\n]+)["']?/);
@@ -76,6 +77,10 @@ async function syncSettings() {
       const closureMatch = line.match(/^closure_note:\s*["']?([^"'\n]+)["']?/);
       if (closureMatch) {
         closureNote = closureMatch[1].trim();
+      }
+      const hoursMatch = line.match(/^hours_summary:\s*["']?([^"'\n]+)["']?/);
+      if (hoursMatch) {
+        hoursSummary = hoursMatch[1].trim();
       }
     });
 
@@ -89,7 +94,8 @@ async function syncSettings() {
         settings: {
           opening_hours: schedule,
           logo_url: logoUrl,
-          closure_note: closureNote
+          closure_note: closureNote,
+          hours_summary: hoursSummary
         }
       })
     });

@@ -7,50 +7,78 @@
 1. Allez sur `https://lepapio.fr/admin`
 2. Connectez-vous avec Netlify Identity
 
-### Étape 2 : Modifier les horaires d'ouverture
+### Étape 2 : Modifier les informations générales
 
-1. Cliquez sur **⚙️ Paramètres**
-2. Cliquez sur **Horaires d'ouverture**
-3. Pour chaque jour, vous pouvez :
-   - **Activer/désactiver le jour entier** (Ouvert)
-   - **Modifier les horaires du déjeuner** (Service déjeuner, Ouverture, Fermeture)
-   - **Modifier les horaires du dîner** (Service dîner, Ouverture, Fermeture)
-4. Cliquez sur **Publier** en haut
+Dans **⚙️ Paramètres** → **Informations générales**, vous pouvez modifier :
 
-### Étape 3 : Modifier le texte de fermeture
+#### 1. Note de fermeture
+- Champ : **Note de fermeture**
+- Par défaut : "Nous consulter pour les fermetures hebdomadaires"
+- Exemples :
+  - "Fermé le mardi"
+  - "Fermé le dimanche soir et lundi"
+  - "Ouvert 7j/7"
+  - "Congés annuels du 1er au 15 août"
 
-1. Cliquez sur **⚙️ Paramètres**
-2. Cliquez sur **Informations générales**
-3. Modifiez le champ **Note de fermeture**
-   - Par défaut : "Nous consulter pour les fermetures hebdomadaires"
-   - Exemples d'alternatives :
-     - "Fermé le mardi"
-     - "Fermé le dimanche soir et lundi"
-     - "Ouvert 7j/7"
-4. Cliquez sur **Publier** en haut
+#### 2. Résumé des horaires
+- Champ : **Résumé des horaires**
+- Par défaut : "12h-14h / 19h-22h"
+- Format court des horaires
+- Exemples :
+  - "12h-14h / 19h-22h" (midi et soir)
+  - "12h-14h" (midi seulement)
+  - "19h-22h" (soir seulement)
+  - "12h-23h" (service continu)
+
+#### 3. Logo
+- Champ : **URL du logo**
+- Par défaut : "/bateau.png"
+
+**Cliquez sur "Publier" après vos modifications**
+
+### Étape 3 : Modifier les horaires détaillés
+
+Dans **⚙️ Paramètres** → **Horaires d'ouverture**, vous pouvez :
+
+1. **Pour chaque jour** (Lundi à Dimanche) :
+   - Activer/désactiver le jour entier (**Ouvert**)
+   - **Déjeuner** :
+     - Activer/désactiver le service
+     - Modifier les heures d'ouverture/fermeture
+   - **Dîner** :
+     - Activer/désactiver le service
+     - Modifier les heures d'ouverture/fermeture
+
+2. **Cliquez sur "Publier"** en haut
 
 ## 📍 Où s'affichent ces informations ?
 
-### Sur la page d'accueil (Hero)
+### Sur la page d'accueil (Hero) - Carte "Horaires"
 
-Le texte affiché dans la carte "Horaires" :
 ```
 [Note de fermeture]
+[Résumé des horaires]
+```
+
+**Exemple :**
+```
+Nous consulter pour les fermetures hebdomadaires
 12h-14h / 19h-22h
 ```
 
-### Dans la section Contact
+### Dans la section Contact - Horaires détaillés
 
-Les horaires détaillés jour par jour :
+Les horaires complets jour par jour :
 ```
 Lundi: 12:00-14:00 et 19:00-22:00
 Mardi: Fermé
+Mercredi: 12:00-14:00 et 19:00-22:00
 ...
 ```
 
 ## 🔄 Synchronisation automatique
 
-Quand vous publiez des modifications dans le CMS :
+Quand vous publiez des modifications :
 
 1. **Sauvegarde** : Le CMS enregistre dans les fichiers YAML
 2. **Commit Git** : Un commit est créé automatiquement
@@ -58,48 +86,46 @@ Quand vous publiez des modifications dans le CMS :
 4. **Synchronisation Supabase** : Les données sont envoyées vers la base de données
 5. **Mise à jour** : Les visiteurs voient les nouveaux horaires immédiatement
 
-## ⚡ Pas de cache !
+## ⚡ Temps réel - Pas de cache !
 
-Les horaires sont chargés depuis Supabase en temps réel :
+- Les horaires sont chargés depuis Supabase en temps réel
 - Pas besoin de vider le cache du navigateur
 - Les modifications apparaissent dès que le build Netlify est terminé
 - Les utilisateurs voient toujours les horaires actuels
 
 ## 🛠️ Configuration actuelle
 
-### Horaires par défaut
+### Paramètres généraux
+- **Note de fermeture** : "Nous consulter pour les fermetures hebdomadaires"
+- **Résumé des horaires** : "12h-14h / 19h-22h"
+- **Logo** : "/bateau.png"
+
+### Horaires détaillés
 - **Lundi** : Ouvert (12:00-14:00 et 19:00-22:00)
 - **Mardi** : Fermé
 - **Mercredi à Dimanche** : Ouvert (12:00-14:00 et 19:00-22:00)
 
-### Texte de fermeture
-- "Nous consulter pour les fermetures hebdomadaires"
+## 🎨 Exemples de personnalisation
 
-## 🎨 Personnalisation avancée
+### Exemple 1 : Fermeture hebdomadaire fixe
+**Note de fermeture** : "Fermé le mardi"
+**Résumé des horaires** : "12h-14h / 19h-22h"
 
-### Modifier le logo
+### Exemple 2 : Horaires d'été
+**Note de fermeture** : "Ouvert 7j/7 en été"
+**Résumé des horaires** : "12h-14h / 19h-23h"
 
-Dans **Informations générales** :
-- Champ **URL du logo**
-- Par défaut : `/bateau.png`
-- Changez le chemin vers une autre image
+### Exemple 3 : Service midi uniquement
+**Note de fermeture** : "Fermé le soir en janvier"
+**Résumé des horaires** : "12h-14h"
 
-### Exemples de notes de fermeture
+### Exemple 4 : Congés annuels
+**Note de fermeture** : "Congés du 1er au 20 août"
+**Résumé des horaires** : "Réouverture le 21 août"
 
-**Fermetures hebdomadaires fixes :**
-- "Fermé le mardi"
-- "Fermé le dimanche et lundi"
-- "Fermé le lundi midi"
-
-**Fermetures exceptionnelles :**
-- "Fermé du 24 au 26 décembre"
-- "Congés annuels du 1er au 15 août"
-- "Fermé pour travaux jusqu'au 15 mars"
-
-**Messages positifs :**
-- "Ouvert 7j/7"
-- "Toujours ouvert midi et soir"
-- "Nous consulter pour les horaires d'été"
+### Exemple 5 : Service continu
+**Note de fermeture** : "Ouvert en continu"
+**Résumé des horaires** : "12h-22h non-stop"
 
 ## 📊 Architecture technique
 
@@ -112,13 +138,17 @@ Netlify Build
     ↓ exécute
 Script de synchronisation
     ↓ appelle
-Edge Function Supabase
+Edge Function Supabase (sync-settings)
     ↓ écrit dans
 Base de données Supabase (table settings)
+    ├── closure_note
+    ├── hours_summary
+    ├── opening_hours
+    └── logo_url
     ↓ lu par
 Site Web React (useSettings hook)
     ↓ affiche aux
-Visiteurs (pas de cache)
+Visiteurs (temps réel, pas de cache)
 ```
 
 ## ❓ Aide et dépannage
@@ -127,13 +157,20 @@ Visiteurs (pas de cache)
 1. Vérifiez que vous avez cliqué sur "Publier"
 2. Attendez 2-3 minutes (temps de build Netlify)
 3. Consultez les logs de build sur Netlify
-4. En dernier recours : Ctrl+Shift+R pour forcer le rechargement
+4. Ouvrez la console (F12) et vérifiez les erreurs
+5. En dernier recours : Ctrl+Shift+R pour forcer le rechargement
 
-**Comment vérifier que ça fonctionne ?**
-- Ouvrez la console développeur (F12)
-- Vérifiez qu'il n'y a pas d'erreurs rouges
-- Les données devraient se charger depuis Supabase
+**Comment vérifier les données dans Supabase ?**
+- Ouvrez votre projet Supabase
+- Allez dans "Table Editor"
+- Sélectionnez la table "settings"
+- Vous devriez voir 4 lignes :
+  - `closure_note`
+  - `hours_summary`
+  - `opening_hours`
+  - `logo_url`
 
 **Besoin d'aide ?**
 - Consultez les logs de build sur Netlify
-- Vérifiez que l'Edge Function `sync-settings` fonctionne sur Supabase
+- Vérifiez que l'Edge Function `sync-settings` fonctionne
+- Vérifiez les variables d'environnement dans Netlify

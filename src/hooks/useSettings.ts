@@ -44,7 +44,8 @@ export const useSettings = () => {
   const [settings, setSettings] = useState<Settings>({
     opening_hours: defaultSchedule,
     logo_url: '/bateau.png',
-    closure_note: 'Nous consulter pour les fermetures hebdomadaires'
+    closure_note: 'Nous consulter pour les fermetures hebdomadaires',
+    hours_summary: '12h-14h / 19h-22h'
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -98,7 +99,8 @@ export const useSettings = () => {
         const settingsObj: Settings = {
           opening_hours: null,
           logo_url: null,
-          closure_note: null
+          closure_note: null,
+          hours_summary: null
         };
 
         data.forEach((item) => {
@@ -108,13 +110,16 @@ export const useSettings = () => {
             settingsObj.logo_url = typeof item.value === 'string' ? item.value : '/bateau.png';
           } else if (item.key === 'closure_note') {
             settingsObj.closure_note = typeof item.value === 'string' ? item.value : 'Nous consulter pour les fermetures hebdomadaires';
+          } else if (item.key === 'hours_summary') {
+            settingsObj.hours_summary = typeof item.value === 'string' ? item.value : '12h-14h / 19h-22h';
           }
         });
 
         setSettings({
           opening_hours: settingsObj.opening_hours || defaultSchedule,
           logo_url: settingsObj.logo_url || '/bateau.png',
-          closure_note: settingsObj.closure_note || 'Nous consulter pour les fermetures hebdomadaires'
+          closure_note: settingsObj.closure_note || 'Nous consulter pour les fermetures hebdomadaires',
+          hours_summary: settingsObj.hours_summary || '12h-14h / 19h-22h'
         });
       }
 
