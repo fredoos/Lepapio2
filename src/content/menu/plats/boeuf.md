@@ -1,9 +1,9 @@
 ---
-name: "Pièce de bœuf grillée (180g)"
-nameEn: "Grilled Beef Steak (180g)"
-price: "16,00"
-description: "Une viande tendre et savoureuse, grillée à la perfection selon votre cuisson préférée."
-descriptionEn: "Tender and flavorful meat, grilled to perfection according to your preferred cooking."
+name: Côtes d’agneau
+nameEn: Lamb Cutlets
+price: 18,00
+description: Dorées à la plancha, servies avec un jus court.
+descriptionEn: Plancha-seared and served with a light jus.
 order: 2
 available: true
 ---
