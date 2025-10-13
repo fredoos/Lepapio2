@@ -49,6 +49,7 @@ export const useSettings = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    loadOpeningHours();
     fetchSettings();
 
     // Only subscribe to changes if Supabase is configured
@@ -73,6 +74,62 @@ export const useSettings = () => {
       };
     }
   }, []);
+
+  const loadOpeningHours = async () => {
+    try {
+      const response = await fetch('/src/content/settings/opening-hours.yml?raw');
+      if (response.ok) {
+        const text = await response.text();
+        const lines = text.split('\n');
+        const schedule: WeekSchedule = {} as WeekSchedule;
+
+        let currentDay = '';
+        let currentService = '';
+
+        lines.forEach(line => {
+          const dayMatch = line.match(/^(monday|tuesday|wednesday|thursday|friday|saturday|sunday):/);
+          if (dayMatch) {
+            currentDay = dayMatch[1];
+            schedule[currentDay as keyof WeekSchedule] = {
+              enabled: false,
+              lunch: { enabled: false, start: '12:00', end: '14:00' },
+              dinner: { enabled: false, start: '19:00', end: '22:00' }
+            };
+          }
+
+          if (currentDay) {
+            if (line.includes('enabled: true') && !line.includes('Service')) {
+              schedule[currentDay as keyof WeekSchedule].enabled = true;
+            }
+
+            if (line.includes('lunch:')) currentService = 'lunch';
+            if (line.includes('dinner:')) currentService = 'dinner';
+
+            if (currentService && line.includes('enabled: true')) {
+              schedule[currentDay as keyof WeekSchedule][currentService as 'lunch' | 'dinner'].enabled = true;
+            }
+
+            const startMatch = line.match(/start: "([^"]+)"/);
+            if (startMatch && currentService) {
+              schedule[currentDay as keyof WeekSchedule][currentService as 'lunch' | 'dinner'].start = startMatch[1];
+            }
+
+            const endMatch = line.match(/end: "([^"]+)"/);
+            if (endMatch && currentService) {
+              schedule[currentDay as keyof WeekSchedule][currentService as 'lunch' | 'dinner'].end = endMatch[1];
+            }
+          }
+        });
+
+        setSettings(prev => ({
+          ...prev,
+          opening_hours: schedule
+        }));
+      }
+    } catch (error) {
+      console.warn('Could not load opening hours from YAML:', error);
+    }
+  };
 
   const fetchSettings = async () => {
     try {

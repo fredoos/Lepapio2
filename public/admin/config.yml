@@ -25,6 +25,150 @@ collections:
           - {label: "Afficher les Desserts", name: "show_desserts", widget: "boolean", default: true}
           - {label: "Afficher les Glaces", name: "show_glaces", widget: "boolean", default: true}
 
+      - name: "opening_hours"
+        label: "Horaires d'ouverture"
+        file: "src/content/settings/opening-hours.yml"
+        fields:
+          - label: "Lundi"
+            name: "monday"
+            widget: "object"
+            fields:
+              - {label: "Ouvert", name: "enabled", widget: "boolean", default: true}
+              - label: "Déjeuner"
+                name: "lunch"
+                widget: "object"
+                fields:
+                  - {label: "Service déjeuner", name: "enabled", widget: "boolean", default: true}
+                  - {label: "Ouverture", name: "start", widget: "string", default: "12:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+                  - {label: "Fermeture", name: "end", widget: "string", default: "14:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+              - label: "Dîner"
+                name: "dinner"
+                widget: "object"
+                fields:
+                  - {label: "Service dîner", name: "enabled", widget: "boolean", default: true}
+                  - {label: "Ouverture", name: "start", widget: "string", default: "19:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+                  - {label: "Fermeture", name: "end", widget: "string", default: "22:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+
+          - label: "Mardi"
+            name: "tuesday"
+            widget: "object"
+            fields:
+              - {label: "Ouvert", name: "enabled", widget: "boolean", default: false}
+              - label: "Déjeuner"
+                name: "lunch"
+                widget: "object"
+                fields:
+                  - {label: "Service déjeuner", name: "enabled", widget: "boolean", default: false}
+                  - {label: "Ouverture", name: "start", widget: "string", default: "12:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+                  - {label: "Fermeture", name: "end", widget: "string", default: "14:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+              - label: "Dîner"
+                name: "dinner"
+                widget: "object"
+                fields:
+                  - {label: "Service dîner", name: "enabled", widget: "boolean", default: false}
+                  - {label: "Ouverture", name: "start", widget: "string", default: "19:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+                  - {label: "Fermeture", name: "end", widget: "string", default: "22:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+
+          - label: "Mercredi"
+            name: "wednesday"
+            widget: "object"
+            fields:
+              - {label: "Ouvert", name: "enabled", widget: "boolean", default: true}
+              - label: "Déjeuner"
+                name: "lunch"
+                widget: "object"
+                fields:
+                  - {label: "Service déjeuner", name: "enabled", widget: "boolean", default: true}
+                  - {label: "Ouverture", name: "start", widget: "string", default: "12:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+                  - {label: "Fermeture", name: "end", widget: "string", default: "14:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+              - label: "Dîner"
+                name: "dinner"
+                widget: "object"
+                fields:
+                  - {label: "Service dîner", name: "enabled", widget: "boolean", default: true}
+                  - {label: "Ouverture", name: "start", widget: "string", default: "19:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+                  - {label: "Fermeture", name: "end", widget: "string", default: "22:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+
+          - label: "Jeudi"
+            name: "thursday"
+            widget: "object"
+            fields:
+              - {label: "Ouvert", name: "enabled", widget: "boolean", default: true}
+              - label: "Déjeuner"
+                name: "lunch"
+                widget: "object"
+                fields:
+                  - {label: "Service déjeuner", name: "enabled", widget: "boolean", default: true}
+                  - {label: "Ouverture", name: "start", widget: "string", default: "12:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+                  - {label: "Fermeture", name: "end", widget: "string", default: "14:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+              - label: "Dîner"
+                name: "dinner"
+                widget: "object"
+                fields:
+                  - {label: "Service dîner", name: "enabled", widget: "boolean", default: true}
+                  - {label: "Ouverture", name: "start", widget: "string", default: "19:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+                  - {label: "Fermeture", name: "end", widget: "string", default: "22:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+
+          - label: "Vendredi"
+            name: "friday"
+            widget: "object"
+            fields:
+              - {label: "Ouvert", name: "enabled", widget: "boolean", default: true}
+              - label: "Déjeuner"
+                name: "lunch"
+                widget: "object"
+                fields:
+                  - {label: "Service déjeuner", name: "enabled", widget: "boolean", default: true}
+                  - {label: "Ouverture", name: "start", widget: "string", default: "12:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+                  - {label: "Fermeture", name: "end", widget: "string", default: "14:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+              - label: "Dîner"
+                name: "dinner"
+                widget: "object"
+                fields:
+                  - {label: "Service dîner", name: "enabled", widget: "boolean", default: true}
+                  - {label: "Ouverture", name: "start", widget: "string", default: "19:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+                  - {label: "Fermeture", name: "end", widget: "string", default: "22:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+
+          - label: "Samedi"
+            name: "saturday"
+            widget: "object"
+            fields:
+              - {label: "Ouvert", name: "enabled", widget: "boolean", default: true}
+              - label: "Déjeuner"
+                name: "lunch"
+                widget: "object"
+                fields:
+                  - {label: "Service déjeuner", name: "enabled", widget: "boolean", default: true}
+                  - {label: "Ouverture", name: "start", widget: "string", default: "12:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+                  - {label: "Fermeture", name: "end", widget: "string", default: "14:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+              - label: "Dîner"
+                name: "dinner"
+                widget: "object"
+                fields:
+                  - {label: "Service dîner", name: "enabled", widget: "boolean", default: true}
+                  - {label: "Ouverture", name: "start", widget: "string", default: "19:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+                  - {label: "Fermeture", name: "end", widget: "string", default: "22:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+
+          - label: "Dimanche"
+            name: "sunday"
+            widget: "object"
+            fields:
+              - {label: "Ouvert", name: "enabled", widget: "boolean", default: true}
+              - label: "Déjeuner"
+                name: "lunch"
+                widget: "object"
+                fields:
+                  - {label: "Service déjeuner", name: "enabled", widget: "boolean", default: true}
+                  - {label: "Ouverture", name: "start", widget: "string", default: "12:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+                  - {label: "Fermeture", name: "end", widget: "string", default: "14:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+              - label: "Dîner"
+                name: "dinner"
+                widget: "object"
+                fields:
+                  - {label: "Service dîner", name: "enabled", widget: "boolean", default: true}
+                  - {label: "Ouverture", name: "start", widget: "string", default: "19:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+                  - {label: "Fermeture", name: "end", widget: "string", default: "22:00", pattern: ['^[0-9]{2}:[0-9]{2}$', "Format: HH:MM"]}
+
   - name: "menu_entrees"
     label: "Menu - Entrées"
     folder: "src/content/menu/entrees"
