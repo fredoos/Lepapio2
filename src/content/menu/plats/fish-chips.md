@@ -6,6 +6,6 @@ description: Poisson frais du jour en beignet croustillant, servi avec des
   frites maison et une sauce tartare.
 descriptionEn: Fresh fish of the day in crispy batter, served with homemade
   fries and tartar sauce.
-order: 7
+order: 6
 available: true
 ---
