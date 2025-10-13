@@ -23,7 +23,6 @@ const Menu = () => {
 
   const categories = [
     { id: 'entrees', label: t('menu.starters'), icon: Utensils },
-    { id: 'potages', label: t('menu.soups'), icon: Fish },
     { id: 'plats', label: t('menu.mains'), icon: Beef },
     { id: 'moules', label: t('menu.mussels'), icon: ChefHat },
     { id: 'pizzas', label: t('menu.pizzas'), icon: Pizza },

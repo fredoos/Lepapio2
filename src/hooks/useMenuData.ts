@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { MenuData, MenuItem } from '../types/menu';
 
+// Fonction pour parser les fichiers Markdown
 const parseMarkdownFile = (content: string): MenuItem | null => {
   try {
     const frontMatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
@@ -41,13 +42,16 @@ const parseMarkdownFile = (content: string): MenuItem | null => {
   }
 };
 
+// Fonction pour charger tous les fichiers d'une catégorie dynamiquement
 const loadMenuCategory = async (category: string): Promise<MenuItem[]> => {
   const items: MenuItem[] = [];
-
+  
   try {
+    // Import dynamique de tous les fichiers .md de la catégorie
     const modules = import.meta.glob('/src/content/menu/**/*.md', { as: 'raw' });
-
+    
     for (const path in modules) {
+      // Vérifier si le fichier appartient à la bonne catégorie
       if (path.includes(`/menu/${category}/`)) {
         try {
           const content = await modules[path]();
@@ -71,7 +75,6 @@ const loadMenuCategory = async (category: string): Promise<MenuItem[]> => {
 export const useMenuData = (): MenuData => {
   const [menuData, setMenuData] = useState<MenuData>({
     entrees: [],
-    potages: [],
     plats: [],
     moules: [],
     pizzas: [],
@@ -80,11 +83,14 @@ export const useMenuData = (): MenuData => {
     desserts: [],
     glaces: []
   });
+  
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const loadAllCategories = async () => {
       try {
-        const categories = ['entrees', 'potages', 'plats', 'moules', 'pizzas', 'formules', 'enfant', 'desserts', 'glaces'];
+        setIsLoading(true);
+        const categories = ['entrees', 'plats', 'moules', 'pizzas', 'formules', 'enfant', 'desserts', 'glaces'];
         const loadedData: Partial<MenuData> = {};
 
         await Promise.all(
@@ -97,6 +103,8 @@ export const useMenuData = (): MenuData => {
         setMenuData(loadedData as MenuData);
       } catch (error) {
         console.error('Erreur générale lors du chargement du menu:', error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
