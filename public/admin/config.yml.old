@@ -1,0 +1,186 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+# Configuration pour Le Papio
+site_url: https://lepapio.fr
+display_url: https://lepapio.fr
+
+collections:
+  # GESTION DES ACTUALITÉS
+  - name: "actualites"
+    label: "📰 Actualités"
+    folder: "src/content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Titre", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime", default: "{{now}}"}
+      - {label: "Image principale", name: "image", widget: "image", required: false}
+      - {label: "Résumé court", name: "excerpt", widget: "text", hint: "Description courte pour l'aperçu"}
+      - {label: "Contenu", name: "body", widget: "markdown"}
+      - {label: "Publié", name: "published", widget: "boolean", default: true}
+
+  # GESTION DU MENU - ENTRÉES
+  - name: "menu-entrees"
+    label: "🥗 Menu - Entrées"
+    folder: "src/content/menu/entrees"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nom du plat", name: "name", widget: "string"}
+      - {label: "Nom en anglais", name: "nameEn", widget: "string", required: false}
+      - {label: "Prix", name: "price", widget: "string", pattern: ["^[0-9]+,[0-9]{2}$", "Format: 12,50"]}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Description en anglais", name: "descriptionEn", widget: "text", required: false}
+      - {label: "Photo du plat", name: "image", widget: "image", required: false, media_folder: "/uploads"}
+      - {label: "Ordre d'affichage", name: "order", widget: "number", default: 1}
+      - {label: "Disponible", name: "available", widget: "boolean", default: true}
+
+  # GESTION DU MENU - PLATS PRINCIPAUX
+  - name: "menu-plats"
+    label: "🍽️ Menu - Plats Principaux"
+    folder: "src/content/menu/plats"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nom du plat", name: "name", widget: "string"}
+      - {label: "Nom en anglais", name: "nameEn", widget: "string", required: false}
+      - {label: "Prix", name: "price", widget: "string", pattern: ["^[0-9]+,[0-9]{2}$", "Format: 16,50"]}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Description en anglais", name: "descriptionEn", widget: "text", required: false}
+      - {label: "Photo du plat", name: "image", widget: "image", required: false, media_folder: "/uploads"}
+      - {label: "Ordre d'affichage", name: "order", widget: "number", default: 1}
+      - {label: "Disponible", name: "available", widget: "boolean", default: true}
+
+  # GESTION DU MENU - PIZZAS
+  - name: "menu-pizzas"
+    label: "🍕 Menu - Pizzas"
+    folder: "src/content/menu/pizzas"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nom de la pizza", name: "name", widget: "string"}
+      - {label: "Nom en anglais", name: "nameEn", widget: "string", required: false}
+      - {label: "Prix", name: "price", widget: "string", pattern: ["^[0-9]+,[0-9]{2}$", "Format: 14,50"]}
+      - {label: "Description courte", name: "description", widget: "text"}
+      - {label: "Description en anglais", name: "descriptionEn", widget: "text", required: false}
+      - {label: "Ingrédients", name: "ingredients", widget: "text", hint: "Ex: Tomate, mozzarella, jambon, champignon"}
+      - {label: "Ingrédients en anglais", name: "ingredientsEn", widget: "text", required: false}
+      - {label: "Photo de la pizza", name: "image", widget: "image", required: false, media_folder: "/uploads"}
+      - {label: "Ordre d'affichage", name: "order", widget: "number", default: 1}
+      - {label: "Disponible", name: "available", widget: "boolean", default: true}
+
+  # GESTION DU MENU - DESSERTS
+  - name: "menu-desserts"
+    label: "🍰 Menu - Desserts"
+    folder: "src/content/menu/desserts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nom du dessert", name: "name", widget: "string"}
+      - {label: "Nom en anglais", name: "nameEn", widget: "string", required: false}
+      - {label: "Prix", name: "price", widget: "string", pattern: ["^[0-9]+,[0-9]{2}$", "Format: 7,50"]}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Description en anglais", name: "descriptionEn", widget: "text", required: false}
+      - {label: "Photo du dessert", name: "image", widget: "image", required: false, media_folder: "/uploads"}
+      - {label: "Ordre d'affichage", name: "order", widget: "number", default: 1}
+      - {label: "Disponible", name: "available", widget: "boolean", default: true}
+
+  # GESTION DES MOULES-FRITES
+  - name: "menu-moules"
+    label: "🦪 Menu - Moules-Frites"
+    folder: "src/content/menu/moules"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nom", name: "name", widget: "string"}
+      - {label: "Nom en anglais", name: "nameEn", widget: "string", required: false}
+      - {label: "Prix", name: "price", widget: "string", pattern: ["^[0-9]+,[0-9]{2}$", "Format: 15,50"]}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Description en anglais", name: "descriptionEn", widget: "text", required: false}
+      - {label: "Photo", name: "image", widget: "image", required: false, media_folder: "/uploads"}
+      - {label: "Ordre d'affichage", name: "order", widget: "number", default: 1}
+      - {label: "Disponible", name: "available", widget: "boolean", default: true}
+
+  # GESTION DES FORMULES
+  - name: "menu-formules"
+    label: "🍽️ Menu - Formules"
+    folder: "src/content/menu/formules"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nom de la formule", name: "name", widget: "string"}
+      - {label: "Nom en anglais", name: "nameEn", widget: "string", required: false}
+      - {label: "Prix", name: "price", widget: "string", pattern: ["^[0-9]+,[0-9]{2}$", "Format: 17,50"]}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Description en anglais", name: "descriptionEn", widget: "text", required: false}
+      - {label: "Photo", name: "image", widget: "image", required: false, media_folder: "/uploads"}
+      - {label: "Ordre d'affichage", name: "order", widget: "number", default: 1}
+      - {label: "Disponible", name: "available", widget: "boolean", default: true}
+
+  # GESTION DU MENU ENFANT
+  - name: "menu-enfant"
+    label: "👶 Menu - Enfants"
+    folder: "src/content/menu/enfant"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nom du menu", name: "name", widget: "string"}
+      - {label: "Nom en anglais", name: "nameEn", widget: "string", required: false}
+      - {label: "Prix", name: "price", widget: "string", pattern: ["^[0-9]+,[0-9]{2}$", "Format: 8,50"]}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Description en anglais", name: "descriptionEn", widget: "text", required: false}
+      - {label: "Photo", name: "image", widget: "image", required: false, media_folder: "/uploads"}
+      - {label: "Ordre d'affichage", name: "order", widget: "number", default: 1}
+      - {label: "Disponible", name: "available", widget: "boolean", default: true}
+
+  # GESTION DES GLACES
+  - name: "menu-glaces"
+    label: "🍦 Menu - Glaces"
+    folder: "src/content/menu/glaces"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nom", name: "name", widget: "string"}
+      - {label: "Nom en anglais", name: "nameEn", widget: "string", required: false}
+      - {label: "Prix", name: "price", widget: "string", pattern: ["^[0-9]+,[0-9]{2}$", "Format: 7,50"]}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Description en anglais", name: "descriptionEn", widget: "text", required: false}
+      - {label: "Ingrédients/Parfums", name: "ingredients", widget: "text", required: false, hint: "Ex: Parfums vanille, chocolat, fraise"}
+      - {label: "Ingrédients/Parfums en anglais", name: "ingredientsEn", widget: "text", required: false}
+      - {label: "Photo", name: "image", widget: "image", required: false, media_folder: "/uploads"}
+      - {label: "Ordre d'affichage", name: "order", widget: "number", default: 1}
+      - {label: "Disponible", name: "available", widget: "boolean", default: true}
+
+  # PARAMÈTRES DU RESTAURANT
+  - name: "settings"
+    label: "⚙️ Paramètres Restaurant"
+    files:
+      - label: "Informations générales"
+        name: "general"
+        file: "src/content/settings/general.yml"
+        fields:
+          - {label: "Nom du restaurant", name: "restaurant_name", widget: "string"}
+          - {label: "Logo (URL de l'image)", name: "logo_url", widget: "image", default: "/bateau.png", hint: "Téléchargez ou sélectionnez une image pour le logo"}
+          - {label: "Téléphone", name: "phone", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Adresse", name: "address", widget: "text"}
+          - {label: "Message d'accueil", name: "hero_message", widget: "text"}
+          - {label: "Description courte", name: "short_description", widget: "text"}
+          - label: "Horaires d'ouverture"
+            name: "opening_hours"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "Jours d'ouverture", name: "hours_days", widget: "string", default: "Du lundi au dimanche"}
+              - {label: "Début déjeuner", name: "hours_lunch_start", widget: "string", default: "12:00", hint: "Format: HH:MM"}
+              - {label: "Fin déjeuner", name: "hours_lunch_end", widget: "string", default: "14:00", hint: "Format: HH:MM"}
+              - {label: "Début dîner", name: "hours_dinner_start", widget: "string", default: "19:00", hint: "Format: HH:MM"}
+              - {label: "Fin dîner", name: "hours_dinner_end", widget: "string", default: "22:00", hint: "Format: HH:MM"}
+
+# Prévisualisation en temps réel
+show_preview_links: true

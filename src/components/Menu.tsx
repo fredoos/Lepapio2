@@ -2,15 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { ChefHat, Fish, Pizza, Coffee, Utensils, Clock, Baby, IceCream, Beef, Carrot, Phone } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useMenuData } from '../hooks/useMenuData';
-import { useMenuVisibility } from '../hooks/useMenuVisibility';
 
 const Menu = () => {
   const { language, t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState('entrees');
   const [currentMarinImage, setCurrentMarinImage] = useState('/marin1.gif');
-
+  
+  // Récupérer les données du menu avec traductions
   const menuData = useMenuData();
-  const visibility = useMenuVisibility();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -22,24 +21,17 @@ const Menu = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const allCategories = [
-    { id: 'entrees', label: t('menu.starters'), icon: Utensils, visible: visibility.show_entrees },
-    { id: 'potages', label: t('menu.soups'), icon: Fish, visible: visibility.show_potages },
-    { id: 'plats', label: t('menu.mains'), icon: Beef, visible: visibility.show_plats },
-    { id: 'pizzas', label: t('menu.pizzas'), icon: Pizza, visible: visibility.show_pizzas },
-    { id: 'formules', label: t('menu.formulas'), icon: Clock, visible: visibility.show_formules },
-    { id: 'enfant', label: t('menu.kids'), icon: Baby, visible: visibility.show_enfant },
-    { id: 'desserts', label: t('menu.desserts'), icon: Coffee, visible: visibility.show_desserts },
-    { id: 'glaces', label: t('menu.ice_cream'), icon: IceCream, visible: visibility.show_glaces }
+  const categories = [
+    { id: 'entrees', label: t('menu.starters'), icon: Utensils },
+    { id: 'potages', label: t('menu.soups'), icon: Fish },
+    { id: 'plats', label: t('menu.mains'), icon: Beef },
+    { id: 'moules', label: t('menu.mussels'), icon: ChefHat },
+    { id: 'pizzas', label: t('menu.pizzas'), icon: Pizza },
+    { id: 'formules', label: t('menu.formulas'), icon: Clock },
+    { id: 'enfant', label: t('menu.kids'), icon: Baby },
+    { id: 'desserts', label: t('menu.desserts'), icon: Coffee },
+    { id: 'glaces', label: t('menu.ice_cream'), icon: IceCream }
   ];
-
-  const categories = allCategories.filter(cat => cat.visible);
-
-  useEffect(() => {
-    if (categories.length > 0 && !categories.find(cat => cat.id === activeCategory)) {
-      setActiveCategory(categories[0].id);
-    }
-  }, [visibility]);
 
 
   return (
@@ -184,6 +176,25 @@ const Menu = () => {
               </div>
             </div>
           )}
+
+         {activeCategory === 'moules' && (
+           <div className="mt-8 pt-6 border-t border-gray-200">
+             <div className="bg-green-50 p-4 rounded-lg">
+               <div className="flex items-start space-x-2">
+                 <div className="w-3 h-3 bg-green-500 rounded-full mt-1 flex-shrink-0"></div>
+                 <div className="text-sm text-green-800">
+                    <p className="font-semibold">{t('menu.mussels_fries_homemade')}</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-2 mt-3">
+                  <div className="w-3 h-3 bg-green-500 rounded-full mt-1 flex-shrink-0"></div>
+                  <div className="text-sm text-green-800">
+                    <p className="font-semibold">{t('menu.mussels_generous_portion')}</p>
+                 </div>
+               </div>
+             </div>
+           </div>
+         )}
 
           {activeCategory === 'pizzas' && (
             <div className="mt-8 pt-6 border-t border-gray-200">
