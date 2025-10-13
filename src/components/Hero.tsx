@@ -1,9 +1,11 @@
 import React from 'react';
 import { MapPin, Phone, Clock } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useSettings } from '../hooks/useSettings';
 
 const Hero = () => {
   const { t } = useLanguage();
+  const { settings } = useSettings();
 
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-papio-400 to-papio-500 pt-20">
@@ -105,12 +107,9 @@ const Hero = () => {
             <Clock className="w-8 h-8 mx-auto mb-4 text-white/90" />
             <h3 className="font-semibold mb-2">{t('hero.hours')}</h3>
             <p className="text-sm text-white/80">
-              {t('hero.hours_full').split('\n').map((line, i) => (
-                <React.Fragment key={i}>
-                  {line}
-                  {i < t('hero.hours_full').split('\n').length - 1 && <br />}
-                </React.Fragment>
-              ))}
+              {settings.closure_note || 'Nous consulter pour les fermetures hebdomadaires'}
+              <br />
+              12h-14h / 19h-22h
             </p>
           </div>
         </div>

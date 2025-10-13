@@ -5,13 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "node scripts/generate-menu.js",
+    "prebuild": "node scripts/generate-menu.js && node scripts/sync-settings-to-supabase.js",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sync-settings": "node scripts/sync-settings-to-supabase.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.75.0",
+    "dotenv": "^16.4.5",
     "gray-matter": "^4.0.3",
     "js-yaml": "^4.1.0",
     "lucide-react": "^0.344.0",
