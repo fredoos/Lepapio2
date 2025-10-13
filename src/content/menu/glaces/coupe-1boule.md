@@ -5,7 +5,7 @@ price: 3,00
 description: Une boule de votre parfum préféré
 descriptionEn: One scoop of your favorite flavor
 ingredients: ""
-ingredientsEn: y
+ingredientsEn: ""
 order: 1
 available: true
 ---
