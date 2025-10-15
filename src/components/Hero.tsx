@@ -121,13 +121,6 @@ const Hero = () => {
                   : (settings.hours_summary_en || '12pm-2pm / 7pm-10pm')
               )}
             </p>
-            <p className="text-xs text-white/60 mt-3 italic">
-              {loading ? '' : (
-                language === 'fr'
-                  ? (settings.closure_note || 'Fermé le mardi')
-                  : (settings.closure_note_en || 'Closed on Tuesday')
-              )}
-            </p>
           </div>
         </div>
       </div>
