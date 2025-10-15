@@ -229,17 +229,6 @@
   ],
   "pizzas": [
     {
-      "name": "Napolitaine",
-      "nameEn": "Neapolitan",
-      "price": "16,00",
-      "description": "La vraie saveur italienne avec anchois, câpres et olives noires.",
-      "descriptionEn": "Authentic Italian flavours with anchovies, capers and black olives.",
-      "ingredients": "Tomate, anchois, câpres, olives, mozzarella",
-      "ingredientsEn": "Tomato, anchovies, capers, olives, mozzarella",
-      "order": 1,
-      "available": true
-    },
-    {
       "name": "Hawaïenne",
       "nameEn": "Hawaiian",
       "price": "16,00",
@@ -269,6 +258,17 @@
       "descriptionEn": "Italian simplicity: homemade tomato sauce, melting mozzarella and white ham for a gentle pizza.",
       "ingredients": "Tomate, jambon blanc, mozzarella",
       "ingredientsEn": "Tomato, white ham, mozzarella",
+      "order": 1,
+      "available": true
+    },
+    {
+      "name": "Napolitaine",
+      "nameEn": "Neapolitan",
+      "price": "16,00",
+      "description": "La vraie saveur italienne avec anchois, câpres et olives noires.",
+      "descriptionEn": "Authentic Italian flavours with anchovies, capers and black olives.",
+      "ingredients": "Tomate, anchois, câpres, olives, mozzarella",
+      "ingredientsEn": "Tomato, anchovies, capers, olives, mozzarella",
       "order": 1,
       "available": true
     },
