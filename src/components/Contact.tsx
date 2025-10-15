@@ -4,7 +4,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useSettings } from '../hooks/useSettings';
 
 const Contact = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { settings } = useSettings();
 
   const contactInfo = {
@@ -72,7 +72,7 @@ const Contact = () => {
                   {settings.opening_hours && (
                     <div className="text-gray-600 space-y-1">
                       {Object.entries(settings.opening_hours).map(([day, schedule]) => {
-                        const dayLabels: Record<string, string> = {
+                        const dayLabelsFr: Record<string, string> = {
                           monday: 'Lundi',
                           tuesday: 'Mardi',
                           wednesday: 'Mercredi',
@@ -82,10 +82,24 @@ const Contact = () => {
                           sunday: 'Dimanche'
                         };
 
+                        const dayLabelsEn: Record<string, string> = {
+                          monday: 'Monday',
+                          tuesday: 'Tuesday',
+                          wednesday: 'Wednesday',
+                          thursday: 'Thursday',
+                          friday: 'Friday',
+                          saturday: 'Saturday',
+                          sunday: 'Sunday'
+                        };
+
+                        const dayLabels = language === 'fr' ? dayLabelsFr : dayLabelsEn;
+                        const closedText = language === 'fr' ? 'Fermé' : 'Closed';
+                        const andText = language === 'fr' ? ' et ' : ' and ';
+
                         if (!schedule || !schedule.enabled) {
                           return (
                             <p key={day} className="text-sm">
-                              <span className="font-medium">{dayLabels[day] || day}:</span> Fermé
+                              <span className="font-medium">{dayLabels[day] || day}:</span> {closedText}
                             </p>
                           );
                         }
@@ -101,18 +115,23 @@ const Contact = () => {
                         if (services.length === 0) {
                           return (
                             <p key={day} className="text-sm">
-                              <span className="font-medium">{dayLabels[day] || day}:</span> Fermé
+                              <span className="font-medium">{dayLabels[day] || day}:</span> {closedText}
                             </p>
                           );
                         }
 
                         return (
                           <p key={day} className="text-sm">
-                            <span className="font-medium">{dayLabels[day] || day}:</span> {services.join(' et ')}
+                            <span className="font-medium">{dayLabels[day] || day}:</span> {services.join(andText)}
                           </p>
                         );
                       })}
-                      <p className="text-sm text-gray-500 mt-2">{t('contact.hours_note')}</p>
+                      <p className="text-sm text-gray-500 mt-2">
+                        {language === 'fr'
+                          ? (settings.closure_note || '* Fermé le mardi')
+                          : (settings.closure_note_en || '* Closed on Tuesday')
+                        }
+                      </p>
                     </div>
                   )}
                 </div>
