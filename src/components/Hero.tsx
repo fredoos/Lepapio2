@@ -7,12 +7,6 @@ const Hero = () => {
   const { t, language } = useLanguage();
   const { settings, loading } = useSettings();
 
-  React.useEffect(() => {
-    if (!loading) {
-      console.log('Hero - Settings loaded:', settings);
-    }
-  }, [settings, loading]);
-
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-papio-400 to-papio-500 pt-20">
       {/* Wave decoration */}
