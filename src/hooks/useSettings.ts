@@ -43,8 +43,10 @@ export const useSettings = () => {
   const [settings, setSettings] = useState<Settings>({
     opening_hours: defaultSchedule,
     logo_url: '/bateau.png',
-    closure_note: 'Nous consulter pour les fermetures hebdomadaires',
-    hours_summary: '12h-14h / 19h-22h'
+    closure_note: 'Fermé le mardi',
+    closure_note_en: 'Closed on Tuesday',
+    hours_summary: '12h-14h / 19h-22h',
+    hours_summary_en: '12pm-2pm / 7pm-10pm'
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -110,8 +112,10 @@ export const useSettings = () => {
         const text = await generalResponse.text();
         const lines = text.split('\n');
         let logoUrl = '/bateau.png';
-        let closureNote = 'Nous consulter pour les fermetures hebdomadaires';
+        let closureNote = 'Fermé le mardi';
+        let closureNoteEn = 'Closed on Tuesday';
         let hoursSummary = '12h-14h / 19h-22h';
+        let hoursSummaryEn = '12pm-2pm / 7pm-10pm';
 
         lines.forEach(line => {
           const logoMatch = line.match(/^logo_url:\s*["']?([^"'\n]+)["']?/);
@@ -122,9 +126,17 @@ export const useSettings = () => {
           if (closureMatch) {
             closureNote = closureMatch[1].trim();
           }
+          const closureEnMatch = line.match(/^closure_note_en:\s*["']?([^"'\n]+)["']?/);
+          if (closureEnMatch) {
+            closureNoteEn = closureEnMatch[1].trim();
+          }
           const hoursMatch = line.match(/^hours_summary:\s*["']?([^"'\n]+)["']?/);
           if (hoursMatch) {
             hoursSummary = hoursMatch[1].trim();
+          }
+          const hoursEnMatch = line.match(/^hours_summary_en:\s*["']?([^"'\n]+)["']?/);
+          if (hoursEnMatch) {
+            hoursSummaryEn = hoursEnMatch[1].trim();
           }
         });
 
@@ -132,7 +144,9 @@ export const useSettings = () => {
           ...prev,
           logo_url: logoUrl,
           closure_note: closureNote,
-          hours_summary: hoursSummary
+          closure_note_en: closureNoteEn,
+          hours_summary: hoursSummary,
+          hours_summary_en: hoursSummaryEn
         }));
       }
 

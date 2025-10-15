@@ -4,7 +4,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useSettings } from '../hooks/useSettings';
 
 const Hero = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { settings, loading } = useSettings();
 
   React.useEffect(() => {
@@ -112,15 +112,20 @@ const Hero = () => {
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center text-white">
             <Clock className="w-8 h-8 mx-auto mb-4 text-white/90" />
             <h3 className="font-semibold mb-2">{t('hero.hours')}</h3>
-            <p className="text-sm text-white/80">
+            <p className="text-base font-semibold text-white">
               {loading ? (
                 'Chargement...'
               ) : (
-                <>
-                  {settings.closure_note || 'Nous consulter pour les fermetures hebdomadaires'}
-                  <br />
-                  {settings.hours_summary || '12h-14h / 19h-22h'}
-                </>
+                language === 'fr'
+                  ? (settings.hours_summary || '12h-14h / 19h-22h')
+                  : (settings.hours_summary_en || '12pm-2pm / 7pm-10pm')
+              )}
+            </p>
+            <p className="text-xs text-white/60 mt-3 italic">
+              {loading ? '' : (
+                language === 'fr'
+                  ? (settings.closure_note || 'Fermé le mardi')
+                  : (settings.closure_note_en || 'Closed on Tuesday')
               )}
             </p>
           </div>
