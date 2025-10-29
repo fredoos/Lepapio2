@@ -42,6 +42,15 @@ const Menu = () => {
     }
   }, [visibility]);
 
+  const formatPrice = (price: number | string): string => {
+    const numPrice = typeof price === 'number' ? price : parseFloat(price.toString().replace(',', '.'));
+    return new Intl.NumberFormat('fr-FR', {
+      style: 'currency',
+      currency: 'EUR',
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }).format(numPrice);
+  };
 
   return (
     <section className="py-20 bg-gray-100">
@@ -143,11 +152,13 @@ const Menu = () => {
           <div className="space-y-8">
             {menuData[activeCategory as keyof typeof menuData]?.map((item, index) => (
               <div key={index} className="border-b border-gray-100 pb-6 last:border-b-0 hover:bg-gray-50 p-4 rounded-lg transition-colors">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-2xl font-black text-gray-800 flex-1 mr-4" style={{ fontFamily: 'Dancing Script, cursive' }}>
+                <div className="flex justify-between items-start gap-4 mb-4">
+                  <h3 className="text-2xl font-black text-gray-800 flex-1 min-w-0" style={{ fontFamily: 'Dancing Script, cursive' }}>
                     {language === 'en' && item.nameEn ? item.nameEn : item.name}
                   </h3>
-                  <span className="text-3xl font-black text-papio-600">{item.price} €</span>
+                  <span className="text-2xl sm:text-3xl font-black text-papio-600 whitespace-nowrap shrink-0">
+                    {formatPrice(item.price)}
+                  </span>
                 </div>
                 
                 {(item.description || item.descriptionEn) && (
