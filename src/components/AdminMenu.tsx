@@ -37,6 +37,16 @@ const AdminMenu = () => {
   const [editingItem, setEditingItem] = useState<MenuItemDB | null>(null);
   const [showForm, setShowForm] = useState(false);
 
+  const formatPrice = (price: number | string): string => {
+    const numPrice = typeof price === 'number' ? price : parseFloat(price.toString().replace(',', '.'));
+    return new Intl.NumberFormat('fr-FR', {
+      style: 'currency',
+      currency: 'EUR',
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }).format(numPrice);
+  };
+
   useEffect(() => {
     loadMenuItems();
   }, []);
@@ -248,7 +258,7 @@ const AdminMenu = () => {
                       {/* Prix */}
                       <div className="flex-shrink-0 text-right">
                         <div className="inline-block px-4 py-2 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-lg shadow-md">
-                          <span className="text-2xl font-bold text-white">{item.price} €</span>
+                          <span className="text-2xl font-bold text-white">{formatPrice(item.price)}</span>
                         </div>
                       </div>
                     </div>
