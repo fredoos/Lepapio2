@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sun } from 'lucide-react';
+import { Sun, Cloud, CloudRain } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useSettings } from '../hooks/useSettings';
 import LanguageSelector from './LanguageSelector';
@@ -8,14 +8,57 @@ interface HeaderProps {
   activeSection: string;
 }
 
+interface WeatherData {
+  temperature: number;
+  weatherCode: number;
+  icon: 'sun' | 'cloud' | 'rain';
+}
+
 const Header = ({ activeSection }: HeaderProps) => {
   const { t } = useLanguage();
   const { settings } = useSettings();
   const [currentTime, setCurrentTime] = useState('20h42');
-  const [temperature, setTemperature] = useState('20°');
+  const [weather, setWeather] = useState<WeatherData | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [nextOpenTime, setNextOpenTime] = useState('');
+
+  useEffect(() => {
+    const fetchWeather = async () => {
+      try {
+        const response = await fetch(
+          'https://api.open-meteo.com/v1/forecast?latitude=49.6337&longitude=-1.6225&current=temperature_2m,weather_code&timezone=Europe%2FParis'
+        );
+
+        if (response.ok) {
+          const data = await response.json();
+          const current = data.current;
+
+          let icon: 'sun' | 'cloud' | 'rain' = 'sun';
+          if (current.weather_code <= 1) {
+            icon = 'sun';
+          } else if (current.weather_code <= 3) {
+            icon = 'cloud';
+          } else {
+            icon = 'rain';
+          }
+
+          setWeather({
+            temperature: Math.round(current.temperature_2m),
+            weatherCode: current.weather_code,
+            icon: icon
+          });
+        }
+      } catch (err) {
+        console.error('Erreur météo:', err);
+      }
+    };
+
+    fetchWeather();
+    const weatherInterval = setInterval(fetchWeather, 10 * 60 * 1000);
+
+    return () => clearInterval(weatherInterval);
+  }, []);
 
   useEffect(() => {
     const updateTime = () => {
@@ -113,10 +156,33 @@ const Header = ({ activeSection }: HeaderProps) => {
           {/* Weather widget */}
           <div className="flex flex-col items-start">
             <div className="flex items-center space-x-2 text-sm text-gray-600 mb-1" style={{marginLeft: '-8px'}}>
-              <div className="w-6 h-6 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-sm">
-                <Sun className="w-4 h-4 text-white animate-pulse" />
-              </div>
-              <span className="font-medium">{temperature}</span>
+              {weather ? (
+                <>
+                  {weather.icon === 'sun' && (
+                    <div className="w-6 h-6 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-sm">
+                      <Sun className="w-4 h-4 text-white animate-pulse" />
+                    </div>
+                  )}
+                  {weather.icon === 'cloud' && (
+                    <div className="w-6 h-6 bg-gradient-to-br from-gray-400 to-gray-500 rounded-full flex items-center justify-center shadow-sm">
+                      <Cloud className="w-4 h-4 text-white" />
+                    </div>
+                  )}
+                  {weather.icon === 'rain' && (
+                    <div className="w-6 h-6 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-sm">
+                      <CloudRain className="w-4 h-4 text-white" />
+                    </div>
+                  )}
+                  <span className="font-medium">{weather.temperature}°</span>
+                </>
+              ) : (
+                <>
+                  <div className="w-6 h-6 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-sm">
+                    <Sun className="w-4 h-4 text-white animate-pulse" />
+                  </div>
+                  <span className="font-medium">--°</span>
+                </>
+              )}
               <span>{currentTime}</span>
             </div>
             
