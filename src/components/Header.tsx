@@ -107,7 +107,7 @@ const Header = ({ activeSection }: HeaderProps) => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm" role="banner">
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Weather widget */}
@@ -148,11 +148,15 @@ const Header = ({ activeSection }: HeaderProps) => {
               <h1 className="text-2xl md:text-xl font-bold text-gray-800">{settings.restaurant_name}</h1>
               <p className="text-sm text-gray-600">{t('header.restaurant')}</p>
               <div className="flex items-center justify-between mt-1">
-                <span className={`text-xs font-medium px-2 py-1 rounded-full ${
-                  isOpen 
-                    ? 'bg-green-100 text-green-800' 
-                    : 'bg-red-100 text-red-800'
-                }`}>
+                <span
+                  className={`text-xs font-medium px-2 py-1 rounded-full ${
+                    isOpen
+                      ? 'bg-green-100 text-green-900'
+                      : 'bg-red-100 text-red-900'
+                  }`}
+                  role="status"
+                  aria-live="polite"
+                >
                   {isOpen ? `🟢 ${t('header.open')}` : `🔴 ${t('header.closed')}`}
                 </span>
                 
@@ -175,7 +179,7 @@ const Header = ({ activeSection }: HeaderProps) => {
 
           {/* Navigation Desktop */}
           <div className="hidden md:flex items-center space-x-4">
-            <nav>
+            <nav aria-label="Navigation principale">
               <ul className="flex items-center space-x-8">
                 {navItems.map((item) => (
                   <li key={item.id}>
@@ -199,9 +203,12 @@ const Header = ({ activeSection }: HeaderProps) => {
           </div>
 
           {/* Mobile menu button */}
-          <button 
+          <button
             className="md:hidden p-2"
             onClick={toggleMobileMenu}
+            aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             <div className="w-6 h-6 flex flex-col justify-center space-y-1">
               <div className={`w-full h-0.5 bg-gray-600 transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1' : ''}`}></div>
@@ -213,8 +220,8 @@ const Header = ({ activeSection }: HeaderProps) => {
         
         {/* Mobile menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
-            <nav className="px-4 py-6">
+          <div id="mobile-menu" className="md:hidden bg-white border-t border-gray-100 shadow-lg">
+            <nav className="px-4 py-6" aria-label="Navigation mobile">
               <ul className="space-y-4">
                 {navItems.map((item) => (
                   <li key={item.id}>

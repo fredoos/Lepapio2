@@ -37,9 +37,15 @@ function App() {
   return (
     <LanguageProvider>
       <div className="min-h-screen bg-gray-100">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-papio-600 focus:text-white focus:rounded-lg focus:shadow-lg"
+        >
+          Aller au contenu principal
+        </a>
         <Header activeSection={activeSection} />
 
-        <main>
+        <main id="main-content">
           <section id="accueil">
             <Hero />
           </section>
