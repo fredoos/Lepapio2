@@ -10,18 +10,14 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Seagull from './components/Seagull';
 import AdminSettings from './components/AdminSettings';
-import AdminMenu from './components/AdminMenu';
 
 function App() {
   const [activeSection, setActiveSection] = useState('accueil');
   const [showAdmin, setShowAdmin] = useState(false);
-  const [showMenuAdmin, setShowMenuAdmin] = useState(false);
 
   useEffect(() => {
     if (window.location.pathname === '/admin') {
       setShowAdmin(true);
-    } else if (window.location.pathname === '/admin/menu') {
-      setShowMenuAdmin(true);
     }
   }, []);
 
@@ -51,16 +47,6 @@ function App() {
       <LanguageProvider>
         <div className="min-h-screen bg-gray-50">
           <AdminSettings />
-        </div>
-      </LanguageProvider>
-    );
-  }
-
-  if (showMenuAdmin) {
-    return (
-      <LanguageProvider>
-        <div className="min-h-screen bg-gray-50">
-          <AdminMenu />
         </div>
       </LanguageProvider>
     );
