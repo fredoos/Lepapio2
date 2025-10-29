@@ -211,7 +211,7 @@ const Header = ({ activeSection }: HeaderProps) => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <div>
-              <h1 className="text-2xl md:text-xl font-bold text-gray-800">{settings.restaurant_name}</h1>
+              <span className="text-2xl md:text-xl font-bold text-gray-800 block">{settings.restaurant_name}</span>
               <p className="text-sm text-gray-600">{t('header.restaurant')}</p>
               <div className="flex items-center justify-between mt-1">
                 <span
