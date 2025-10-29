@@ -9,17 +9,9 @@ import News from './components/News';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Seagull from './components/Seagull';
-import AdminSettings from './components/AdminSettings';
 
 function App() {
   const [activeSection, setActiveSection] = useState('accueil');
-  const [showAdmin, setShowAdmin] = useState(false);
-
-  useEffect(() => {
-    if (window.location.pathname === '/admin') {
-      setShowAdmin(true);
-    }
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,16 +33,6 @@ function App() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  if (showAdmin) {
-    return (
-      <LanguageProvider>
-        <div className="min-h-screen bg-gray-50">
-          <AdminSettings />
-        </div>
-      </LanguageProvider>
-    );
-  }
 
   return (
     <LanguageProvider>

@@ -183,7 +183,7 @@
     {
       "name": "Fish and chips (pêche du jour)",
       "nameEn": "Fish and Chips (catch of the day)",
-      "price": "16,00",
+      "price": "17,00",
       "description": "Poisson frais du jour en beignet croustillant, servi avec des frites maison et une sauce tartare.",
       "descriptionEn": "Fresh fish of the day in crispy batter, served with homemade fries and tartar sauce.",
       "ingredients": "",
@@ -253,7 +253,7 @@
     {
       "name": "Margherita",
       "nameEn": "Margherita",
-      "price": "12,00",
+      "price": "11,00",
       "description": "Simplicité italienne : sauce tomate maison, mozzarella fondante et jambon blanc pour une pizza tout en douceur.",
       "descriptionEn": "Italian simplicity: homemade tomato sauce, melting mozzarella and white ham for a gentle pizza.",
       "ingredients": "Tomate, jambon blanc, mozzarella",
@@ -286,7 +286,7 @@
     {
       "name": "Calzone",
       "nameEn": "Calzone",
-      "price": "17,00",
+      "price": "14,00",
       "description": "Une pizza fermée à la pâte dorée, garnie généreusement de jambon, œuf et mozzarella fondante.",
       "descriptionEn": "A closed pizza with golden dough, generously filled with ham, egg and melting mozzarella.",
       "ingredients": "Tomate, mozzarella, jambon, œuf",
@@ -352,7 +352,7 @@
     {
       "name": "Indienne",
       "nameEn": "Indian",
-      "price": "15,00",
+      "price": "14,00",
       "description": "Voyage en terres épicées avec cette pizza relevée au curry, poivrons et poulet tendre.",
       "descriptionEn": "Journey to spicy lands with this pizza enhanced with curry, peppers and tender chicken.",
       "ingredients": "Tomate, poulet, poivron, curry, mozzarella",
@@ -374,7 +374,7 @@
     {
       "name": "Végétarienne",
       "nameEn": "Vegetarian",
-      "price": "17,00",
+      "price": "14,00",
       "description": "Une pizza colorée et savoureuse garnie de légumes fondants et de mozzarella dorée.",
       "descriptionEn": "A colorful and tasty pizza topped with melting vegetables and golden mozzarella.",
       "ingredients": "Tomate, pommes de terre, champignons, poivrons, mozzarella",
@@ -385,7 +385,7 @@
     {
       "name": "Norvégienne",
       "nameEn": "Norwegian",
-      "price": "18,00",
+      "price": "17,00",
       "description": "Une création raffinée aux saveurs nordiques : saumon fumé, cidre et caramel salé.",
       "descriptionEn": "A refined creation with Nordic flavors: smoked salmon, cider and salted caramel.",
       "ingredients": "Crème, saumon fumé, jambon citronné, cidre, caramel de cidre",
@@ -407,7 +407,7 @@
     {
       "name": "Papio",
       "nameEn": "Papio",
-      "price": "18,00",
+      "price": "17,00",
       "description": "La signature maison : une pizza sucrée-salée audacieuse mêlant camembert, pomme, jambon du Cotentin et caramel de cidre.",
       "descriptionEn": "Our house signature: a bold sweet-salty pizza combining camembert, apple, Cotentin ham and cider caramel.",
       "ingredients": "Tomate, camembert au lait cru, jambon du Cotentin, pomme, caramel de cidre",
@@ -613,7 +613,7 @@
     {
       "name": "Dame blanche",
       "nameEn": "White Lady",
-      "price": "8,00",
+      "price": "7,50",
       "description": "Vanille et chocolat chaud, la coupe intemporelle des gourmands.",
       "descriptionEn": "Vanilla ice cream with warm chocolate sauce — the timeless indulgence.",
       "ingredients": "Glace vanille, sauce chocolat, chantilly",
