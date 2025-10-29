@@ -19,7 +19,9 @@ collections:
         file: "src/content/settings/general.yml"
         fields:
           - {label: "Nom du restaurant", name: "restaurant_name", widget: "string", default: "Le Papio"}
-          - {label: "URL du logo", name: "logo_url", widget: "string", default: "/bateau.png", hint: "Chemin vers l'image du logo"}
+          - {label: "URL du logo", name: "logo_url", widget: "image", default: "/bateau.png", hint: "Icône du restaurant (utilisé dans le header)"}
+          - {label: "Couleur principale", name: "primary_color", widget: "string", default: "#3B82F6", hint: "Code couleur hex (ex: #3B82F6 pour bleu)"}
+          - {label: "Couleur secondaire", name: "secondary_color", widget: "string", default: "#1E40AF", hint: "Code couleur hex pour survol et accents"}
           - {label: "Note de fermeture (FR)", name: "closure_note", widget: "string", default: "Fermé le mardi", hint: "Texte en français affiché en bas de la carte horaires"}
           - {label: "Note de fermeture (EN)", name: "closure_note_en", widget: "string", default: "Closed on Tuesday", hint: "Texte en anglais affiché en bas de la carte horaires"}
           - {label: "Résumé des horaires (FR)", name: "hours_summary", widget: "string", default: "12h-14h / 19h-22h", hint: "Format court en français (ex: 12h-14h / 19h-22h)"}

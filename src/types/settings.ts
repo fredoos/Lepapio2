@@ -23,6 +23,8 @@ export interface WeekSchedule {
 export interface Settings {
   opening_hours: WeekSchedule | null;
   logo_url: string | null;
+  primary_color?: string | null;
+  secondary_color?: string | null;
   closure_note?: string | null;
   hours_summary?: string | null;
   restaurant_name?: string;
