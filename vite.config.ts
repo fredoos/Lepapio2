@@ -11,10 +11,6 @@ export default defineConfig({
     target: 'es2015',
     cssTarget: 'chrome61',
     rollupOptions: {
-      input: {
-        main: './index.html',
-        adminMenu: './admin-menu.html'
-      },
       output: {
         entryFileNames: `assets/[name].[hash].js`,
         chunkFileNames: `assets/[name].[hash].js`,
