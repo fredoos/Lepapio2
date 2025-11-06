@@ -37,13 +37,8 @@ const Hero = () => {
             }}
           ></div>
 
-          {/* H1 SEO-friendly pour les moteurs de recherche */}
-          <h1 className="sr-only">
-            Le Papio - Restaurant Pizzeria à Cherbourg-en-Cotentin
-          </h1>
-
-          {/* Affichage visuel du logo (pas un H1) */}
-          <div className="flex items-center justify-center text-white mb-8" aria-hidden="true">
+          {/* Logo visuel */}
+          <div className="flex items-center justify-center text-white mb-8">
             <div className="text-6xl md:text-9xl font-bold mr-1 text-white/90" style={{ fontFamily: 'Montserrat, sans-serif', WebkitTextStroke: '1px black' }}>
               <span className="md:hidden" style={{ fontFamily: 'Trebuchet MS, Verdana, Geneva, sans-serif', fontWeight: '900', letterSpacing: '0.02em' }}>Le</span>
               <span className="hidden md:inline" style={{ fontFamily: 'Dancing Script, cursive', fontWeight: 'normal' }}>Le</span>
@@ -63,9 +58,14 @@ const Hero = () => {
             />
           </div>
 
-          <p className="relative z-10 text-xl text-white/90 mb-8 font-light bg-white/15 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/20 shadow-lg max-w-4xl mx-auto">
+          {/* H1 visible et SEO-friendly */}
+          <h1 className="relative z-10 text-2xl md:text-3xl text-white/95 mb-4 font-semibold">
+            Le Papio - Restaurant Pizzeria à Cherbourg-en-Cotentin
+          </h1>
+
+          <h2 className="relative z-10 text-xl text-white/90 mb-8 font-light bg-white/15 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/20 shadow-lg max-w-4xl mx-auto">
             {t('hero.tagline')}
-          </p>
+          </h2>
 
           <p className="relative z-10 text-lg text-white/80 max-w-3xl mx-auto leading-relaxed">
             {t('hero.description')}

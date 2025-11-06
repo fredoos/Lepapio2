@@ -115,12 +115,39 @@ const About = () => {
           <p className="text-gray-600 mb-6">
             {t('about.cta_desc')}
           </p>
-          <a 
-            href="tel:0233921845"
-            className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold px-12 py-4 text-xl rounded-full transition-all duration-300 shadow-2xl hover:shadow-red-500/50 hover:scale-105 animate-pulse border-4 border-red-400"
-          >
-            {t('about.cta_button')}
-          </a>
+          <div className="flex flex-wrap justify-center gap-4 mb-6">
+            <a
+              href="tel:0233921845"
+              className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold px-12 py-4 text-xl rounded-full transition-all duration-300 shadow-2xl hover:shadow-red-500/50 hover:scale-105 animate-pulse border-4 border-red-400"
+            >
+              {t('about.cta_button')}
+            </a>
+            <a
+              href="#carte"
+              className="inline-block bg-papio-600 hover:bg-papio-700 text-white font-bold px-12 py-4 text-xl rounded-full transition-all duration-300 shadow-xl hover:scale-105"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('carte')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              {t('about.view_menu') || 'Voir la carte'}
+            </a>
+          </div>
+          <p className="text-sm text-gray-500">
+            <a href="#contact" className="hover:text-papio-600 underline" onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            }}>
+              {t('about.contact_link') || 'Nous contacter'}
+            </a>
+            {' | '}
+            <a href="#photos" className="hover:text-papio-600 underline" onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('photos')?.scrollIntoView({ behavior: 'smooth' });
+            }}>
+              {t('about.gallery_link') || 'Voir nos photos'}
+            </a>
+          </p>
         </div>
       </div>
     </section>
