@@ -75,9 +75,10 @@ const Menu = () => {
           <h2 className="text-4xl font-bold text-gray-800 mb-4" style={{ fontFamily: 'Dancing Script, cursive' }}>
             {t('menu.title')}
           </h2>
-          <h3 className="text-lg text-gray-600">
+          <h3 className="sr-only">{t('menu.subtitle')}</h3>
+          <p className="text-lg text-gray-600">
             {t('menu.subtitle')}
-          </h3>
+          </p>
         </div>
 
         {/* Menu description section */}
