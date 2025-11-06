@@ -31,16 +31,16 @@ const About = () => {
   return (
     <section className="py-20 bg-gray-100">
       {/* Image Michel bateau */}
-      <div className="flex justify-center mb-4 -mt-8">
-        <div className="relative overflow-hidden rounded-3xl">
+      <div className="flex justify-center mb-4 -mt-8 px-4">
+        <div className="relative overflow-hidden rounded-3xl w-full max-w-7xl">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-transparent bg-gradient-radial from-center opacity-20 pointer-events-none z-10"></div>
         <img
           src="/michel_en_bateau-min.jpg"
           alt="Michel sur son bateau - Le Papio restaurant Cherbourg"
-          className="h-32 md:h-56 w-full max-w-5xl object-cover drop-shadow-2xl opacity-95 mask-fade-horizontal"
+          className="h-48 md:h-80 lg:h-96 w-full object-cover drop-shadow-2xl opacity-95 mask-fade-horizontal"
           style={{
-            maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)'
+            maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)'
           }}
           onError={(e) => {
             const fallback = document.createElement('div');
