@@ -39,7 +39,7 @@ const Hero = () => {
 
           {/* H1 SEO-friendly pour les moteurs de recherche */}
           <h1 className="sr-only">
-            Le Papio - Restaurant Pizzeria à Cherbourg-en-Cotentin - Cuisine Traditionnelle et Pizzas Artisanales Face au Port
+            Le Papio - Restaurant Pizzeria à Cherbourg-en-Cotentin
           </h1>
 
           {/* Affichage visuel du logo (pas un H1) */}
