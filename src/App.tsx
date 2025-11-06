@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
-import Menu from './components/Menu';
-import Gallery from './components/Gallery';
-import News from './components/News';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import Seagull from './components/Seagull';
+
+const Menu = lazy(() => import('./components/Menu'));
+const Gallery = lazy(() => import('./components/Gallery'));
+const News = lazy(() => import('./components/News'));
+const Contact = lazy(() => import('./components/Contact'));
+const Footer = lazy(() => import('./components/Footer'));
+const Seagull = lazy(() => import('./components/Seagull'));
 
 function App() {
   const [activeSection, setActiveSection] = useState('accueil');
@@ -52,27 +53,29 @@ function App() {
 
           <About />
 
-          <section id="carte">
-            <Menu />
-          </section>
+          <Suspense fallback={<div className="py-20 text-center">Chargement...</div>}>
+            <section id="carte">
+              <Menu />
+            </section>
 
-          <section id="photos">
-            <Gallery />
-          </section>
+            <section id="photos">
+              <Gallery />
+            </section>
 
-          <section id="actualites">
-            <News />
-          </section>
+            <section id="actualites">
+              <News />
+            </section>
 
-          <section id="contact">
-            <Contact />
-          </section>
+            <section id="contact">
+              <Contact />
+            </section>
+          </Suspense>
         </main>
 
-        <Footer />
-
-        {/* Animation de mouette */}
-        <Seagull />
+        <Suspense fallback={null}>
+          <Footer />
+          <Seagull />
+        </Suspense>
       </div>
     </LanguageProvider>
   );

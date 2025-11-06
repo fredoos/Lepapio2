@@ -83,6 +83,8 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
         width={width}
         height={height}
         loading={loading}
+        decoding="async"
+        fetchpriority={loading === 'eager' ? 'high' : 'low'}
         onLoad={handleLoad}
         onError={handleError}
         style={{
